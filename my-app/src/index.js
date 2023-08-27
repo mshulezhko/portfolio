@@ -5,9 +5,29 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const gialogsItem = [
+  { id: '1', name: 'Valeriy' },
+  { id: '2', name: 'Valeriy2' },
+  { id: '3', name: 'Valeriy3' },
+]
+
+const messages = [
+  { text: 'how are you' },
+  { text: 'how are you1111' },
+  { text: 'how are you2' }
+]
+
+const postsInfo = [
+  { name: 'Hello everyone it is my first post', text: 'i love you' },
+  { name: 'Hello 22', text: 'i love you 2' }
+]
+
 root.render(
   <React.StrictMode>
-    <App />
+    <App gialogsItem={gialogsItem}
+      messages={messages}
+      postsInfo={postsInfo}
+    />
   </React.StrictMode>
 );
 
