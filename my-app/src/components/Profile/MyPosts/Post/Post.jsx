@@ -7,8 +7,8 @@ function Post(props) {
     }
 
     return <div>
-        <h3>{props.name}</h3>
-        <p>{props.text}</p>
+        <h3>{props.message}</h3>
+        <p>{props.likesCount}</p>
 
 <button onClick={deletePost}>delete</button>
     </div>

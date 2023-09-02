@@ -4,18 +4,22 @@ import MyPosts from './MyPosts/MyPosts';
 import ProfileInfo from './ProfileInfo/ProfileInfo'
 
 function Profile(props) {
-    let newPostElementRef = React.createRef()
+    // debugger;
 
-    function addPost() {
-        let text = newPostElementRef.current.value
-        alert(text)
+    function updatePostText(e){
+       props.updatePostText(e.target.value)
     }
 
+function addPost(){
+     props.addPost()
+
+}
+
     return <div className='content'>
-        <textarea ref={newPostElementRef}></textarea>
+        <textarea onChange={updatePostText} value={props.newPostText}></textarea>
         <button onClick={addPost} >add post</button>
 <ProfileInfo/>
-<MyPosts postsInfo={props.postsInfo} />
+<MyPosts posts={props.posts} />
     </div>
 }
 

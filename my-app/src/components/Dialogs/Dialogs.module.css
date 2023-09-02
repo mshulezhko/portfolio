@@ -4,3 +4,7 @@
     grid-template-columns: 1fr 3fr;
     padding: 20px;
 }
+
+.dialogsBlock {
+    padding: 10px;
+}

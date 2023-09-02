@@ -7,7 +7,7 @@ function MyPosts(props) {
 
     return <div className='my_posts'>
         my_posts hello
-        { props.postsInfo.map((post) => <Post name={post.name} text={post.text} /> )}
+        { props.posts.map((post) => <Post message={post.message} likesCount={post.likesCount}/> )}
     </div>
 }
 

@@ -1,11 +1,12 @@
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Header from './components/Header/Header';
-import Profile from './components/Profile/Profile';
-import Dialogs from './components/Dialogs/Dialogs';
+import ProfileContainer from './components/Profile/ProfileContainer';
+import DialogsContainer from './components/Dialogs/DialogsContainer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function App(props) {
+  // debugger;
   return (
     <BrowserRouter>
       <div className="app-wrapper">
@@ -13,8 +14,10 @@ function App(props) {
         <Header />
         <Navbar />
         <Routes>
-          <Route path="/dialog/*" element={<Dialogs gialogsItem={props.gialogsItem} messages={props.messages} />} />
-          <Route path="/profile" element={<Profile postsInfo={props.postsInfo} />} />
+          <Route path="/dialog/*" element={<DialogsContainer store={props.store} />} />
+          <Route path="/profile" element={<ProfileContainer
+            store={props.store}
+          />} />
         </Routes>
       </div>
     </BrowserRouter>
