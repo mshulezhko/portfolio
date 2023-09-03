@@ -18,16 +18,16 @@ export default function dialogReducer(state = initialState, action) {
     // debugger;
     switch (action.type) {
         case UPDATE_NEW_MESSAGE_BODY:
-            state.newMessageBody = action.body
-            console.log(UPDATE_NEW_MESSAGE_BODY)
-            console.log(state)
-            return state;
+            return {
+                ...state,
+                newMessageBody: action.body
+            }
         case SEND_MESSAGE:
-            state.messages.push({ id: 14, message: state.newMessageBody })
-            console.log(SEND_MESSAGE)
-            console.log(state)
-            state.newMessageBody = ''
-            return state;
+            return {
+                ...state,
+                messages: [...state.messages, { id: 14, message: state.newMessageBody }],
+                newMessageBody: ''
+            }
         default:
             return state;
 

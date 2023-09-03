@@ -11,7 +11,9 @@ let initialState = {
 }
 
 export default function profileReducer(state = initialState, action) {
-    // debugger;
+    console.log('state 99999999')
+    console.log(state)
+
     switch (action.type) {
         case ADD_POST:
             let newPost = {
@@ -20,22 +22,22 @@ export default function profileReducer(state = initialState, action) {
                 likesCount: 123
             }
 
-            if (newPost.message.length > 0) {
-                state.posts.push(newPost)
+            if (state.newPostText.length > 0) {
+                return {
+                    ...state,
+                    posts: [...state.posts, { ...newPost }],
+                    newPostText: ''
+                }
             }
 
-            state.newPostText = ''
-            console.log(ADD_POST)
-            console.log(state)
-            return state;
+            return state
+
         case UPDATE_NEW_POST_TEXT:
-            state.newPostText = action.newText
-            console.log(UPDATE_NEW_POST_TEXT)
-            console.log(state)
-            return state;
+            return {
+                ...state,
+                newPostText: action.newText
+            }
         default:
-            console.log('state++')
-            console.log(state)
             return state;
     }
 }

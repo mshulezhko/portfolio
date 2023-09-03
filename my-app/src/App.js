@@ -14,10 +14,8 @@ function App(props) {
         <Header />
         <Navbar />
         <Routes>
-          <Route path="/dialog/*" element={<DialogsContainer store={props.store} />} />
-          <Route path="/profile" element={<ProfileContainer
-            store={props.store}
-          />} />
+          <Route path="/dialog/*" element={<DialogsContainer />} />
+          <Route path="/profile" element={<ProfileContainer />} />
         </Routes>
       </div>
     </BrowserRouter>

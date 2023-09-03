@@ -6,14 +6,14 @@ import Messages from './Messages'
 function Dialogs(props) {
     // debugger;
 
-    let newMessageRef = React.createRef()
-
     function sendMessage() {
         props.sendMessage()
     }
 
-    function updateMessage() {
-        let messageText = newMessageRef.current.value
+    function updateMessage(e) {
+        let messageText = e.target.value
+        console.log('function updateMessage()')
+        console.log(messageText)
         props.updateMessage(messageText)
     }
 
@@ -31,7 +31,7 @@ function Dialogs(props) {
                     <Messages text={text.message} />)
             }
         </div>
-        <div><textarea value={props.newMessageBody} ref={newMessageRef} onChange={updateMessage}></textarea> <button onClick={sendMessage}>send
+        <div><textarea value={props.newMessageBody} onChange={updateMessage}></textarea> <button onClick={sendMessage}>send
             message</button></div>
     </div>
 }
