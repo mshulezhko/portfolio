@@ -10,6 +10,9 @@ return <div className='nav'>
     <div>
     <NavLink to="/profile" className={(navData) => navData.isActive ? classes.active : classes.item}>Profile</NavLink>
     </div>
+    <div>
+     <NavLink to="/users" className={(navData) => navData.isActive ? classes.active : classes.item}>Users </NavLink>
+    </div>
 </div>
 }
 export default Navbar

@@ -11,8 +11,6 @@ let initialState = {
 }
 
 export default function profileReducer(state = initialState, action) {
-    console.log('state 99999999')
-    console.log(state)
 
     switch (action.type) {
         case ADD_POST:
