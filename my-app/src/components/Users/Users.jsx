@@ -1,8 +1,16 @@
 import React from 'react'
 import styles from './users.module.css'
+import axios from 'axios'
 
 
 const Users = (props) => {
+    if(props.users.length < 0){
+        axios.get('https://social-network.samuraijs.com/api/1.0/users')
+    }
+
+    console.log('gvggggg')
+    axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => console.log(response))
+
 return <div>
    {
     props.users.map(user =>{

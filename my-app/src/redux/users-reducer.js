@@ -38,7 +38,9 @@ export default function usersReducer(state = initialState, action) {
                 })
             }
         case SET_USERS:
-            return action.users
+            // debugger
+            // console.log(action.users)
+            return { users: action.users }
 
         default:
             return state
