@@ -4,11 +4,13 @@ const SET_USERS = 'SET_USERS'
 const TOTAL_COUNT = 'TOTAL_COUNT'
 const PAGE_SIZE = 'PAGE_SIZE'
 const CURRENT_PAGE = 'CURRENT_PAGE'
+const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING'
 
 const initialState = {
     totalCount: 10,
     pageSize: 3,
     currentPage: 1,
+    isFetching: false,
     users: [
         {
             "name": "my",
@@ -65,33 +67,39 @@ export default function usersReducer(state = initialState, action) {
             }
 
             return { ...state, totalCount: action.totalCount }
+        case TOGGLE_IS_FETCHING:
+            return { ...state, isFetching: action.isFetching }
 
         default:
             return state
     }
 }
 
-export const followActionCreator = (id) => {
+export const follow = (id) => {
     return { type: FOLLOW, id }
 }
 
-export const unfollowActionCreator = (id) => {
+export const unfollow = (id) => {
     return { type: UNFOLLOW, id }
 }
 
-export const setUsersActionCreator = (users) => {
+export const setUsers = (users) => {
     return { type: SET_USERS, users }
 }
 
-export const setTotalCountActionCreator = (totalCount) => {
+export const setTotalCount = (totalCount) => {
     return { type: TOTAL_COUNT, totalCount }
 }
 
-export const setPageSizeActionCreator = (pageSize) => {
+export const setPageSize = (pageSize) => {
     return { type: PAGE_SIZE, pageSize }
 }
 
-export const setCurrentPageActionCreator = (currentPage) => {
+export const setCurrentPage = (currentPage) => {
     // debugger;
     return { type: CURRENT_PAGE, currentPage }
+}
+
+export const setFetching = (isFetching) => {
+    return { type: TOGGLE_IS_FETCHING, isFetching }
 }

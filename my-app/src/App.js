@@ -16,7 +16,7 @@ function App(props) {
         <Navbar />
         <Routes>
           <Route path="/dialog/*" element={<DialogsContainer />} />
-          <Route path="/profile" element={<ProfileContainer />} />
+          <Route path="/profile/*" element={<ProfileContainer />} />
           <Route path="/users" element={<UserContainer />} />
         </Routes>
       </div>

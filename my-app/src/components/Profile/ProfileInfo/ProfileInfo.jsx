@@ -1,9 +1,16 @@
 import React from 'react'
+import Preloader from '../../common/Preloader/Preloader'
 
 
 function ProfileInfo(props){
+
+    if(!props.profile) {
+        return Preloader
+    }
+
     return <div className='profile_info'>
-        content + avatar + status
+        <div><img src={props.profile.photos.large} alt="profile_info" /></div>
+      <div> {props.profile.aboutMe}</div>
     </div>
 }
 

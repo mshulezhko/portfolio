@@ -18,7 +18,7 @@ function addPost(){
     return <div className='content'>
         <textarea onChange={updatePostText} value={props.newPostText}></textarea>
         <button onClick={addPost} >add post</button>
-<ProfileInfo/>
+<ProfileInfo profile={props.profile} />
 <MyPosts posts={props.posts} />
     </div>
 }

@@ -1,10 +1,11 @@
 import React from 'react'
+import Preloader from '../common/Preloader/Preloader'
 import styles from './users.module.css'
 import userPhoto from '../../assets/imeges/pngtree-outline-user-icon-png-image_1727916.jpg'
+import { NavLink } from 'react-router-dom'
 
 
 const Users = (props) => {
-    // debugger;
     let pageCount = Math.ceil(props.totalCount / props.pageSize)
 
     let pages = []
@@ -13,6 +14,7 @@ const Users = (props) => {
     }
 
     return <div>
+        { props.isFetching ? <Preloader /> : null}
         <div>
             {pages.map(page => {
                 return <span
@@ -26,7 +28,7 @@ const Users = (props) => {
                 return <div key={user.id}>
                     <h1> {user.name}</h1>
                     <div><h3>{user.status}</h3></div>
-                    <img className={styles.userPhoto} src={user.photos.small ? user.photos.small : userPhoto} alt={user.name} />
+                   <NavLink to={'/profile/' + user.id}> <img className={styles.userPhoto} src={user.photos.small ? user.photos.small : userPhoto} alt={user.name} /></NavLink>
                     <div>
                         {user.followed ? <button onClick={() => props.unfollow(user.id)}>Followed</button> :
                             <button onClick={() => props.follow(user.id)}>Unfollowed</button>
@@ -35,6 +37,7 @@ const Users = (props) => {
                 </div>
             })
         }
+    
     </div>
 }
 
