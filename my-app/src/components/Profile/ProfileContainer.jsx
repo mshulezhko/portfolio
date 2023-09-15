@@ -4,6 +4,7 @@ import Profile from './Profile'
 import { addPostCreator, updateNewPostText,setUserProfile } from '../../redux/profile-reducer'
 import { connect } from 'react-redux'
 import axios from 'axios'
+import withRouter from './withRouter'
 
 // function ProfileContainer(props) {
 //     // debugger;
@@ -44,7 +45,9 @@ const mapDispatchToProps = (dispatch) => {
 class ProfileContainer extends React.Component {
 
     componentDidMount() {
-        axios.get('https://social-network.samuraijs.com/api/1.0/profile/2')
+        let userId = this.props.router.params.userId
+        // debugger
+        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
             .then(response => {
                 // debugger
                 this.props.setUserProfile(response.data)
@@ -52,10 +55,11 @@ class ProfileContainer extends React.Component {
     }
 
     render() {
+        // debugger
         return <Profile posts={this.props.posts} profile={this.props.profile} newPostText={this.props.newPostText} />
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProfileContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ProfileContainer))
 
 // export default ProfileContainer

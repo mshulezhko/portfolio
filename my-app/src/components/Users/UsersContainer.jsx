@@ -2,13 +2,21 @@ import React from 'react'
 import { connect } from 'react-redux'
 import axios from 'axios'
 import Users from './Users'
-import { follow } from '../../redux/users-reducer'
-import { unfollow } from '../../redux/users-reducer'
-import { setUsers } from '../../redux/users-reducer'
-import {setTotalCount} from '../../redux/users-reducer'
-import {setPageSize} from '../../redux/users-reducer'
-import {setCurrentPage} from '../../redux/users-reducer'
-import {setFetching} from '../../redux/users-reducer'
+import { 
+    follow,
+    unfollow,
+    setUsers,
+    setTotalCount,
+    setPageSize,
+    setCurrentPage,
+    setFetching
+} from '../../redux/users-reducer'
+// import { unfollow } from '../../redux/users-reducer'
+// import { setUsers } from '../../redux/users-reducer'
+// import {setTotalCount} from '../../redux/users-reducer'
+// import {setPageSize} from '../../redux/users-reducer'
+// import {setCurrentPage} from '../../redux/users-reducer'
+// import {setFetching} from '../../redux/users-reducer'
 
 
 const mapStateToProps = (state) => {
@@ -70,6 +78,14 @@ class UsersAPIComponent extends React.Component {
 
 
 const UserContainer = connect(mapStateToProps,
-    {follow, unfollow,setUsers,setTotalCount, setPageSize,setCurrentPage, setFetching})(UsersAPIComponent)
+    {
+        follow,
+        unfollow,
+        setUsers,
+        setTotalCount,
+        setPageSize,
+        setCurrentPage,
+        setFetching
+    })(UsersAPIComponent)
 
 export default UserContainer
