@@ -46,20 +46,18 @@ class ProfileContainer extends React.Component {
 
     componentDidMount() {
         let userId = this.props.router.params.userId
-        // debugger
+
         axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
             .then(response => {
-                // debugger
                 this.props.setUserProfile(response.data)
-            })
+            }).catch((error) => {
+        console.log(error)
+    })
     }
 
     render() {
-        // debugger
         return <Profile posts={this.props.posts} profile={this.props.profile} newPostText={this.props.newPostText} />
     }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ProfileContainer))
-
-// export default ProfileContainer
