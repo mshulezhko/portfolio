@@ -5,6 +5,7 @@ const TOTAL_COUNT = 'TOTAL_COUNT'
 const PAGE_SIZE = 'PAGE_SIZE'
 const CURRENT_PAGE = 'CURRENT_PAGE'
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING'
+const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE_IS_FOLLOWING_PROGRESS'
 
 const initialState = {
     totalCount: 10,
@@ -23,7 +24,8 @@ const initialState = {
             "status": null,
             "followed": false
         }
-    ]
+    ],
+    followingInProgress: []
 }
 
 export default function usersReducer(state = initialState, action) {
@@ -69,6 +71,12 @@ export default function usersReducer(state = initialState, action) {
             return { ...state, totalCount: action.totalCount }
         case TOGGLE_IS_FETCHING:
             return { ...state, isFetching: action.isFetching }
+        case TOGGLE_IS_FOLLOWING_PROGRESS:
+            return {
+                ...state,
+                followingInProgress: action.isFetching ? [state.followingInProgress, action.userId] :
+                    [state.followingInProgress.filter(id => id !== action.userId)]
+            }
 
         default:
             return state
@@ -102,4 +110,8 @@ export const setCurrentPage = (currentPage) => {
 
 export const setFetching = (isFetching) => {
     return { type: TOGGLE_IS_FETCHING, isFetching }
+}
+
+export const setDisabledButton = (isFetching, userId) => {
+    return { type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId }
 }
