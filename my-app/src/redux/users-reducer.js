@@ -1,3 +1,5 @@
+import userAPI from '../api/api'
+
 const FOLLOW = 'FOLLOW'
 const UNFOLLOW = 'UNFOLLOW'
 const SET_USERS = 'SET_USERS'
@@ -114,4 +116,57 @@ export const setFetching = (isFetching) => {
 
 export const setDisabledButton = (isFetching, userId) => {
     return { type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId }
+}
+export const getUsersThunk = (currentPage, totalCount) => {
+    return (dispatch) => {
+
+        dispatch(setFetching(true))
+
+        userAPI.getUsers(currentPage, totalCount).then(data => {
+            dispatch(setUsers(data.items))
+            dispatch(setTotalCount(data.totalCount))
+            dispatch(setFetching(false))
+        }).catch(error => console.log(error))
+    }
+}
+
+export const setPageThunk = (page, totalCount) => {
+
+    return (dispatch) => {
+        dispatch(setCurrentPage(page))
+        dispatch(setFetching(true))
+
+        userAPI.getUsers(page, totalCount)
+            .then(data => dispatch(setUsers(data.items))).catch(error => console.log(error))
+
+        dispatch(setFetching(false))
+    }
+}
+
+export const unfollowUserThunk = (id) => {
+    return (dispatch) => {
+        dispatch(setDisabledButton(true, id))
+
+        userAPI.unfollowUser(id).then(data => {
+            if (data.resultCode === 0) {
+                dispatch(unfollow(id))
+            }
+
+            dispatch(setDisabledButton(false, id))
+
+        })
+    }
+}
+
+export const followUserThunk = (id) => {
+    return (dispatch) => {
+        dispatch(setDisabledButton(true, id))
+        userAPI.followUser(id).then(data => {
+            if (data.resultCode === 0) {
+                dispatch(follow(id))
+            }
+
+            dispatch(setDisabledButton(false, id))
+        })
+    }
 }

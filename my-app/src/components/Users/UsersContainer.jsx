@@ -1,16 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Users from './Users'
-import userAPI from '../../api/api'
+
 import { 
-    follow,
-    unfollow,
-    setUsers,
-    setTotalCount,
-    setPageSize,
-    setCurrentPage,
-    setFetching,
-    setDisabledButton
+    getUsersThunk,
+    setPageThunk,
+    unfollowUserThunk,
+    followUserThunk
 } from '../../redux/users-reducer'
 
 const mapStateToProps = (state) => {
@@ -39,22 +35,12 @@ const mapStateToProps = (state) => {
 class UsersAPIComponent extends React.Component {
 
     componentDidMount() {
-        this.props.setFetching(true)
-            userAPI.getUsers(this.props.currentPage,this.props.totalCount).then(data => {
-                this.props.setUsers(data.items)
-                this.props.setTotalCount(data.totalCount)
-                this.props.setFetching(false)
-            }).catch(error => console.log(error))
+        this.props.getUsersT(this.props.currentPage, this.props.totalCount)
     }
 
     setPage = (page) => {
-        // debugger;
-        this.props.setCurrentPage(page)
 
-        this.props.setFetching(true)
-           userAPI.getUsers(page,this.props.totalCount)
-           .then(data => this.props.setUsers(data.items)).catch(error => console.log(error))
-            this.props.setFetching(false)
+        this.props.setPageT(page, this.props.totalCount)
     }
 
     render() {
@@ -63,11 +49,10 @@ class UsersAPIComponent extends React.Component {
             currentPage={this.props.currentPage}
             pageSize={this.props.pageSize}
             users={this.props.users}
-            unfollow={this.props.unfollow}
-            follow={this.props.follow}
             setPage={this.setPage}
             followingInProgress={this.props.followingInProgress}
-            setDisabledButton={this.props.setDisabledButton}
+            unfollowUserT={this.props.unfollowUserT}
+            followUserT={this.props.followUserT}
              />
     }
 }
@@ -75,14 +60,10 @@ class UsersAPIComponent extends React.Component {
 
 const UserContainer = connect(mapStateToProps,
     {
-        follow,
-        unfollow,
-        setUsers,
-        setTotalCount,
-        setPageSize,
-        setCurrentPage,
-        setFetching,
-        setDisabledButton
+        getUsersT: getUsersThunk,
+        setPageT: setPageThunk,
+        unfollowUserT: unfollowUserThunk,
+        followUserT: followUserThunk
     })(UsersAPIComponent)
 
 export default UserContainer

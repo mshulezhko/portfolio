@@ -3,7 +3,6 @@ import Preloader from '../common/Preloader/Preloader'
 import styles from './users.module.css'
 import userPhoto from '../../assets/imeges/pngtree-outline-user-icon-png-image_1727916.jpg'
 import { NavLink } from 'react-router-dom'
-import userAPI from '../../api/api'
 
 
 const Users = (props) => {
@@ -15,25 +14,11 @@ const Users = (props) => {
     }
 
     function unfollowUser(id) {
-        props.setDisabledButton(true, id)
-    userAPI.unfollowUser(id).then(data => {
-        if(data.resultCode === 0) {
-            props.unfollow(id)
-        }
-
-         props.setDisabledButton(false, id)
-    })
+        props.unfollowUserT(id)
     }
     
     function followUser(id) {
-        props.setDisabledButton(true, id)
-    userAPI.followUser(id).then(data => {
-        if(data.resultCode === 0) {
-            props.follow(id)
-        }
-
-        props.setDisabledButton(false, id)
-    })
+        props.followUserT(id)
     }
 
     return <div>
