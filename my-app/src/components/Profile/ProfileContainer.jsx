@@ -1,10 +1,12 @@
 import React from 'react'
 // import styles from './Profile.module.css'
 import Profile from './Profile'
-import { addPostCreator, updateNewPostText,setUserProfile } from '../../redux/profile-reducer'
+import { addPostCreator, updateNewPostText,getUsersPRofileT } from '../../redux/profile-reducer'
 import { connect } from 'react-redux'
-import axios from 'axios'
 import withRouter from './withRouter'
+import { withAuthRedirect } from '../../hos/withAuthRedirect'
+import { compose } from 'redux'
+
 
 // function ProfileContainer(props) {
 //     // debugger;
@@ -30,7 +32,7 @@ const mapStateToProps = (state) =>   {
     return {
         newPostText: state.profilePage.newPostText,
         posts: state.profilePage.posts,
-        profile: state.profilePage.profile
+        profile: state.profilePage.profile,
     }
 }
 
@@ -38,7 +40,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         updatePostText: (text) => dispatch(updateNewPostText(text)),
         addPost: () => dispatch(addPostCreator()),
-        setUserProfile:(profile)=> dispatch(setUserProfile(profile))
+        getUsersPRofileT:(profile)=> dispatch(getUsersPRofileT(profile))
     }
 }
 
@@ -47,17 +49,20 @@ class ProfileContainer extends React.Component {
     componentDidMount() {
         let userId = this.props.router.params.userId
 
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
-            .then(response => {
-                this.props.setUserProfile(response.data)
-            }).catch((error) => {
-        console.log(error)
-    })
+        this.props.getUsersPRofileT(userId)
     }
 
     render() {
-        return <Profile posts={this.props.posts} profile={this.props.profile} newPostText={this.props.newPostText} />
+        return <Profile {...this.props}/>
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ProfileContainer))
+
+// const AuthRedirectProfileContainer = withAuthRedirect(ProfileContainer)
+// export default connect(mapStateToProps, mapDispatchToProps)(withRouter(AuthRedirectProfileContainer))
+
+export default  compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    withRouter,
+    withAuthRedirect
+)(ProfileContainer)

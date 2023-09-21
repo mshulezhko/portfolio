@@ -2,6 +2,7 @@ import React from 'react'
 // import styles from './Profile.module.css'
 import MyPosts from './MyPosts/MyPosts';
 import ProfileInfo from './ProfileInfo/ProfileInfo'
+import ProfileStatus from './ProfileStatus/ProfileStatus';
 
 function Profile(props) {
     // debugger;
@@ -19,6 +20,7 @@ function addPost(){
         <textarea onChange={updatePostText} value={props.newPostText}></textarea>
         <button onClick={addPost} >add post</button>
 <ProfileInfo profile={props.profile} />
+<ProfileStatus status='ну шо ти' />
 <MyPosts posts={props.posts} />
     </div>
 }

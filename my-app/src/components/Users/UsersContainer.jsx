@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import {compose} from 'redux'
 import Users from './Users'
+import { withAuthRedirect } from '../../hos/withAuthRedirect'
 
 import { 
     getUsersThunk,
@@ -39,7 +41,6 @@ class UsersAPIComponent extends React.Component {
     }
 
     setPage = (page) => {
-
         this.props.setPageT(page, this.props.totalCount)
     }
 
@@ -58,12 +59,22 @@ class UsersAPIComponent extends React.Component {
 }
 
 
-const UserContainer = connect(mapStateToProps,
+// const UserContainer = connect(mapStateToProps,
+//     {
+//         getUsersT: getUsersThunk,
+//         setPageT: setPageThunk,
+//         unfollowUserT: unfollowUserThunk,
+//         followUserT: followUserThunk
+//     })(UsersAPIComponent)
+
+// export default UserContainer
+
+export default compose(connect(mapStateToProps,
     {
         getUsersT: getUsersThunk,
         setPageT: setPageThunk,
         unfollowUserT: unfollowUserThunk,
         followUserT: followUserThunk
-    })(UsersAPIComponent)
-
-export default UserContainer
+    }),
+    withAuthRedirect
+    )(UsersAPIComponent)
