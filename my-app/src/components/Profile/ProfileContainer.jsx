@@ -1,7 +1,7 @@
 import React from 'react'
 // import styles from './Profile.module.css'
 import Profile from './Profile'
-import { addPostCreator, updateNewPostText,getUsersPRofileT } from '../../redux/profile-reducer'
+import { addPostCreator,getUsersPRofileT, getUserStatusT,updateUserStatusT } from '../../redux/profile-reducer'
 import { connect } from 'react-redux'
 import withRouter from './withRouter'
 import { withAuthRedirect } from '../../hos/withAuthRedirect'
@@ -33,14 +33,16 @@ const mapStateToProps = (state) =>   {
         newPostText: state.profilePage.newPostText,
         posts: state.profilePage.posts,
         profile: state.profilePage.profile,
+        status: state.profilePage.status
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        updatePostText: (text) => dispatch(updateNewPostText(text)),
-        addPost: () => dispatch(addPostCreator()),
-        getUsersPRofileT:(profile)=> dispatch(getUsersPRofileT(profile))
+        addPost: (new_post) => dispatch(addPostCreator(new_post)),
+        getUsersPRofileT:(profile)=> dispatch(getUsersPRofileT(profile)),
+        getUserStatus:(userId) => dispatch(getUserStatusT(userId)),
+        updateUserStatus:(status) => dispatch(updateUserStatusT(status))
     }
 }
 
@@ -50,10 +52,12 @@ class ProfileContainer extends React.Component {
         let userId = this.props.router.params.userId
 
         this.props.getUsersPRofileT(userId)
+        this.props.getUserStatus(userId)
     }
 
     render() {
-        return <Profile {...this.props}/>
+        console.log(this.props.status + ' ggghhhbhghhgfhgffgd')
+        return <Profile {...this.props} />
     }
 }
 

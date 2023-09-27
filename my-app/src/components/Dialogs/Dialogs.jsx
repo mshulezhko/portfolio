@@ -2,20 +2,15 @@ import React from 'react'
 import style from './Dialogs.module.css'
 import DialogsItem from './DialogsItem'
 import Messages from './Messages'
+import DialogsForm from './DialogsForm/DialogsForm'
 
 function Dialogs(props) {
     // debugger;
 
-    function sendMessage() {
-        props.sendMessage()
-    }
+    // function sendMessage() {
+    //     props.sendMessage()
+    // }
 
-    function updateMessage(e) {
-        let messageText = e.target.value
-        console.log('function updateMessage()')
-        console.log(messageText)
-        props.updateMessage(messageText)
-    }
 
     return <div className={style.wrapper_dialogs}>
         <div className={style.dialogsBlock}>
@@ -31,8 +26,7 @@ function Dialogs(props) {
                     <Messages text={text.message} />)
             }
         </div>
-        <div><textarea value={props.newMessageBody} onChange={updateMessage}></textarea> <button onClick={sendMessage}>send
-            message</button></div>
+        <DialogsForm sendMessage={props.sendMessage}  />
     </div>
 }
 export default Dialogs

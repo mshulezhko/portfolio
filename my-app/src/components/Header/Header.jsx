@@ -5,12 +5,12 @@ import { NavLink } from 'react-router-dom';
 
 
 function Header(props) {
+    // debugger
     return <div className='header'>
 <img src={logo} alt="logo" />
 <div className={classes.auth} >
     {props.isAuth ? props.userLogin : <NavLink to={'/login'}>login</NavLink>}
 </div>
-<p className={classes.item}>Header test new brench </p>
     </div>
 }
 
