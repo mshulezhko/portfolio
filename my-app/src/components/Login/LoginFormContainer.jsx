@@ -4,12 +4,13 @@ import { connect } from "react-redux";
 
 
 const LoginFormContainer = (props) => {
-    return <Login login={props.login} />
+    return <Login login={props.login} stopSubmitError={props.stopSubmitError} />
 }
 
 const mapStateToProps = (state) => {
     return {
-        isAuth: state.auth.isAuth
+        isAuth: state.auth.isAuth,
+        stopSubmitError: state.auth.stopSubmitError
     }
 }
 

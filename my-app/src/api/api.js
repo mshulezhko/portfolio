@@ -42,6 +42,7 @@ export const authAPI = {
     login(email, password, rememberMe = false,) {
         return instance.post('auth/login', { email, password, rememberMe }).then(response => {
             console.log(' https://social-network.samuraijs.com/api/1.0/auth/me')
+            // userId
             console.log(response.data)
             return response.data
         })

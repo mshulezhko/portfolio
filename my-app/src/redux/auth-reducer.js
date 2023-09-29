@@ -6,7 +6,8 @@ let initialState = {
     id: null,
     login: null,
     email: null,
-    isAuth: false
+    isAuth: false,
+    stopSubmitError: []
 }
 
 const authReducer = (state = initialState, action) => {
@@ -24,15 +25,16 @@ const authReducer = (state = initialState, action) => {
 }
 
 
-export const setUserData = (id, login, email, isAuth = false) => ({ type: SET_USER_DATA, data: { id, login, email, isAuth } })
+export const setUserData = (id, login, email, isAuth = false, stopSubmitError = []) => {
+    // debugger
+    return { type: SET_USER_DATA, data: { id, login, email, isAuth, stopSubmitError } }
+}
+
 export const getAuthMe = () => (dispatch) => {
     return authAPI.me().then(data => {
-        ////probl 1
-        console.log(data)
-        console.log(data.resultCode)
+        // debugger
         if (data.resultCode === 0) {
-            console.log('me data.resultCode')
-            dispatch(setUserData(data.id, data.login, data.email, true))
+            dispatch(setUserData(data.data.id, data.data.login, data.data.email, true))
         }
     })
 }
@@ -40,9 +42,12 @@ export const getAuthMe = () => (dispatch) => {
 export const login = (email, password, rememberMe) => (dispatch) => {
 
     return authAPI.login(email, password, rememberMe).then(data => {
-        // debugger
         if (data.resultCode === 0) {
             dispatch(getAuthMe())
+        } else if (data.resultCode === 1) {
+            console.log(data.messages)
+            console.log('heh')
+            dispatch(setUserData(null, null, null, false, data.messages))
         }
     })
 }
