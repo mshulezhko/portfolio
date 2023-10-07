@@ -3,9 +3,10 @@ import { Form, Field } from 'react-final-form'
 
 
 const MyPostForm = (props) => {
+  const {addPost} = props
     // debugger
     const onSubmit = (fieldsValue) => {
-        props.addPost(fieldsValue.new_post)
+        addPost(fieldsValue.new_post)
     }
 
     return <Form

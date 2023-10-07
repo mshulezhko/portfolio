@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 // import styles from './Profile.module.css'
 import Profile from './Profile'
 import { addPostCreator, getUsersPRofileT, getUserStatusT, updateUserStatusT } from '../../redux/profile-reducer'
@@ -6,28 +6,6 @@ import { connect } from 'react-redux'
 import withRouter from './withRouter'
 import { withAuthRedirect } from '../../hos/withAuthRedirect'
 import { compose } from 'redux'
-// import { Navigate } from 'react-router-dom';
-
-
-// function ProfileContainer(props) {
-//     // debugger;
-//     let state = props.store.getState().profilePage
-
-//     function updatePostText(text) {
-//         return props.store.dispatch(updateNewPostText(text))
-//     }
-
-//     function addPost() {
-//         return props.store.dispatch(addPostCreator())
-
-//     }
-
-//     return <Profile updatePostText={updatePostText}
-//         newPostText={state.newPostText}
-//         addPost={addPost}
-//         posts={state.posts}
-//     />
-// }
 
 const mapStateToProps = (state) => {
     return {
@@ -48,35 +26,23 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-class ProfileContainer extends React.Component {
-
-    componentDidMount() {
-        let userId = this.props.router.params.userId
+const ProfileContainer = (props) => {
+    useEffect(()=>{
+        console.log('use-eff')
+         let userId = props.router.params.userId
         if (userId) {
-            this.props.getUsersPRofileT(userId)
-            this.props.getUserStatus(userId)
-        } else if (this.props.authUserId) {
-            this.props.getUsersPRofileT(this.props.authUserId)
-            this.props.getUserStatus(this.props.authUserId)
+            props.getUsersPRofileT(userId)
+            props.getUserStatus(userId)
+        } else if (props.authUserId) {
+            props.getUsersPRofileT(props.authUserId)
+            props.getUserStatus(props.authUserId)
         }
-    }
+        // eslint-disable-next-line
+    }, [])
 
-    render() {
-        console.log(this.props.authUserId)
-        console.log('this.props.authUserId')
-
-        // if (this.props.authUserId) {
-        //     return <Navigate to={'/profile/' + this.props.authUserId} />
-        // }
-
-
-        return <Profile {...this.props} />
-    }
+  return <Profile {...props} />
 }
 
-
-// const AuthRedirectProfileContainer = withAuthRedirect(ProfileContainer)
-// export default connect(mapStateToProps, mapDispatchToProps)(withRouter(AuthRedirectProfileContainer))
 
 export default compose(
     connect(mapStateToProps, mapDispatchToProps),

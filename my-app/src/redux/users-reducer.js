@@ -1,13 +1,14 @@
 import { userAPI } from '../api/api'
+import { updateObjectInArray } from '../utils/object-helpers'
 
-const FOLLOW = 'FOLLOW'
-const UNFOLLOW = 'UNFOLLOW'
-const SET_USERS = 'SET_USERS'
-const TOTAL_COUNT = 'TOTAL_COUNT'
-const PAGE_SIZE = 'PAGE_SIZE'
-const CURRENT_PAGE = 'CURRENT_PAGE'
-const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING'
-const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE_IS_FOLLOWING_PROGRESS'
+const FOLLOW = 'users-reducer/FOLLOW'
+const UNFOLLOW = 'users-reducer/UNFOLLOW'
+const SET_USERS = 'users-reducer/SET_USERS'
+const TOTAL_COUNT = 'users-reducer/TOTAL_COUNT'
+const PAGE_SIZE = 'users-reducer/PAGE_SIZE'
+const CURRENT_PAGE = 'users-reducer/CURRENT_PAGE'
+const TOGGLE_IS_FETCHING = 'users-reducer/TOGGLE_IS_FETCHING'
+const TOGGLE_IS_FOLLOWING_PROGRESS = 'users-reducer/TOGGLE_IS_FOLLOWING_PROGRESS'
 
 const initialState = {
     totalCount: 10,
@@ -33,32 +34,16 @@ const initialState = {
 export default function usersReducer(state = initialState, action) {
     switch (action.type) {
         case FOLLOW:
-            // debugger;
             return {
                 ...state,
-                users: state.users.map(user => {
-                    if (user.id === action.id) {
-                        return { ...user, followed: true }
-                    } else {
-                        return user
-                    }
-                })
+                users: updateObjectInArray(state.users, action.id, 'id', { followed: true })
             }
         case UNFOLLOW:
-
             return {
                 ...state,
-                users: state.users.map(user => {
-                    if (user.id === action.id) {
-                        return { ...user, followed: false }
-                    } else {
-                        return user
-                    }
-                })
+                users: updateObjectInArray(state.users, action.id, 'id', { followed: false })
             }
         case SET_USERS:
-            // debugger
-            // console.log(action.users)
             return { ...state, users: action.users }
         case CURRENT_PAGE:
             return { ...state, currentPage: action.currentPage }
@@ -144,29 +129,36 @@ export const setPageThunk = (page, totalCount) => {
 }
 
 export const unfollowUserThunk = (id) => {
-    return (dispatch) => {
+    return async (dispatch) => {
         dispatch(setDisabledButton(true, id))
 
-        userAPI.unfollowUser(id).then(data => {
-            if (data.resultCode === 0) {
-                dispatch(unfollow(id))
-            }
+        let apiMethod = userAPI.unfollowUser.bind(userAPI)
+        let actionCreator = unfollow
 
-            dispatch(setDisabledButton(false, id))
+        followUnfollowFlow(dispatch, id, apiMethod, actionCreator)
 
-        })
+        dispatch(setDisabledButton(false, id))
+
     }
 }
 
 export const followUserThunk = (id) => {
-    return (dispatch) => {
-        dispatch(setDisabledButton(true, id))
-        userAPI.followUser(id).then(data => {
-            if (data.resultCode === 0) {
-                dispatch(follow(id))
-            }
+    return async (dispatch) => {
+        let apiMethod = userAPI.followUser.bind(userAPI)
+        let actionCreator = follow
 
-            dispatch(setDisabledButton(false, id))
-        })
+        followUnfollowFlow(dispatch, id, apiMethod, actionCreator)
     }
+}
+
+const followUnfollowFlow = async (dispatch, userId, apiMethod, actionCreator) => {
+    dispatch(setDisabledButton(true, userId))
+
+    let responseData = await apiMethod(userId)
+
+    if (responseData.resultCode === 0) {
+        dispatch(actionCreator(userId))
+    }
+
+    dispatch(setDisabledButton(false, userId))
 }

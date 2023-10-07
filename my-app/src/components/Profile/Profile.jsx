@@ -5,30 +5,28 @@ import ProfileInfo from './ProfileInfo/ProfileInfo'
 import ProfileStatus from './ProfileStatus/ProfileStatus';
 import MyPostForm from './MyPosts/MyPostForm/MyPostForm';
 
-function Profile(props) {
-    // debugger;
-
-    // function updatePostText(e) {
-    //     props.updatePostText(e.target.value)
-    // }
-
-    // function addPost() {
-    //     props.addPost()
-
-    // }
+const Profile = (props) => {
+    const {
+        profile,
+        updateUserStatus,
+        getUserStatus,
+        status,
+        addPost,
+        posts,
+        router: { params: { userId } }
+    } = props
 
     return <div className='content'>
-        {/* <textarea onChange={updatePostText} value={props.newPostText}></textarea>
-        <button onClick={addPost} >add post</button> */}
-        <ProfileInfo profile={props.profile} />
+        <ProfileInfo profile={profile} />
         <ProfileStatus
-            updateUserStatus={props.updateUserStatus}
-            getUserStatus={props.getUserStatus}
-            status={props.status}
-            userId={props.router.params.userId}
-             />
-             <MyPostForm addPost={props.addPost} />
-        <MyPosts posts={props.posts} />
+            updateUserStatus={updateUserStatus}
+            getUserStatus={getUserStatus}
+            status={status}
+            // userId={props.router.params.userId}
+            userId={userId}
+        />
+        <MyPostForm addPost={addPost} />
+        <MyPosts posts={posts} />
     </div>
 }
 

@@ -4,10 +4,11 @@ import Post from './Post/Post'
 
 
 function MyPosts(props) {
+    const {posts} = props
 
     return <div className='my_posts'>
         my_posts hello
-        { props.posts.map((post) => <Post message={post.message} likesCount={post.likesCount}/> )}
+        { posts.map((post) => <Post message={post.message} likesCount={post.likesCount}/> )}
     </div>
 }
 

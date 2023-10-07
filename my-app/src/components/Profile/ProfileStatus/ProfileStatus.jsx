@@ -1,51 +1,45 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 
 
 const ProfileStatus = (props) => {
-    // debugger
-    const [editMode, updateStateMode] = useState(false)
-    const[status, updateStateStatus] = useState(props.status)
-    // alert(props.status)
+    const {
+        status,
+        updateUserStatus
 
-   const activateEditMode = () =>{
-        // alert('ku')
+    } = props
+
+    const [editMode, updateStateMode] = useState(false)
+    const [statusLocalState, updateStateStatus] = useState(status)
+
+    const activateEditMode = () => {
         updateStateMode(true)
     }
 
     const deactivateEditMode = () => {
         updateStateMode(false)
-         props.updateUserStatus(status)
+        updateUserStatus(statusLocalState)
     }
 
     const onStatusChange = (e) => {
-        // console.log(e.currentTarget.value)
-        // debugger
         updateStateStatus(e.currentTarget.value)
-       
     }
 
 
 
-       useEffect(() => {
+    useEffect(() => {
         ///синхронізую локал стайт і глобал
-        console.log('useefect' + props.status)
-    // props.updateUserStatus(props.status)
-    updateStateStatus(props.status)
-    //   props.getUserStatus(props.userId)
-    //   console.log(props.getUserStatus(props.userId))
-    //    console.log(props.userId)
-  }, [props.status]);
-    // <p>{props.getUserStatus(props.userId)}</p>
+        updateStateStatus(status)
+    }, [status]);
+
 
     return <div>
         <h1>STATUS</h1>
-       <div>
-        {!editMode ? <span onClick={activateEditMode} >{props.status}</span> :
-        <input autoFocus='true' onChange={onStatusChange} onBlur={deactivateEditMode} value={status} />}
-      
+        <div>
+            {!editMode ? <span onClick={activateEditMode} >{status}</span> :
+                <input autoFocus='true' onChange={onStatusChange} onBlur={deactivateEditMode} value={statusLocalState} />}
+
         </div>
     </div>
-
 }
 
 export default ProfileStatus

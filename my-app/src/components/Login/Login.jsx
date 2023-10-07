@@ -12,9 +12,10 @@ import { Form, Field } from 'react-final-form'
 
 const Login = (props) => {
 
+    const {login, stopSubmitError} = props
+
     const onSubmit = (fieldsValue) => {
-        console.log(fieldsValue)
-        props.login(fieldsValue.email, fieldsValue.password, fieldsValue.remember_me)
+        login(fieldsValue.email, fieldsValue.password, fieldsValue.remember_me)
     }
 
     return <Form onSubmit={onSubmit}
@@ -75,7 +76,7 @@ const Login = (props) => {
             </button>
                 </div>
                  <pre>{JSON.stringify(values, 0, 2)}</pre>
-                <div className="err">{props.stopSubmitError?.map(element => {
+                <div className="err">{stopSubmitError?.map(element => {
                     return <h1>{element}</h1>
                  })} </div> 
             </form>

@@ -1,4 +1,4 @@
-const SEND_MESSAGE = 'SEND_MESSAGE'
+const SEND_MESSAGE = 'dialogs-reducer/SEND_MESSAGE'
 let initialState = {
     dialogs: [
         { id: '1', name: 'Valeriy' },

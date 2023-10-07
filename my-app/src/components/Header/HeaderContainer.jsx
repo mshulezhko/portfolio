@@ -6,7 +6,10 @@ import { connect } from 'react-redux'
 class HeaderContainer extends React.Component {
 
     render() {
-        return <Header {...this.props} />
+        return <Header
+        isAuth={this.props.isAuth}
+        userLogin={this.props.userLogin}
+        />
     }
 }
 
