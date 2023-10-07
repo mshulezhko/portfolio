@@ -4,7 +4,10 @@ import userPhoto from '../../assets/imeges/pngtree-outline-user-icon-png-image_1
 import { NavLink } from 'react-router-dom'
 
 const User = (props) => {
-    const { users, followingInProgress } = props
+    const {
+        users,
+        followingInProgress
+    } = props
 
     function unfollowUser(id) {
         props.unfollowUserT(id)
