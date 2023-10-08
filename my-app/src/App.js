@@ -3,7 +3,7 @@ import { Suspense, lazy } from 'react';
 import Navbar from './components/Navbar/Navbar';
 import HeaderContainer from './components/Header/HeaderContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import UserContainer from './components/Users/UsersContainer'
 import LoginFormContainer from './components/Login/LoginFormContainer';
 import { connect } from 'react-redux';
@@ -26,7 +26,7 @@ function App(props) {
   const DialogsContainerLazy = lazy(() => import('./components/Dialogs/DialogsContainer'));
 
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <HashRouter>
       <div className="app-wrapper">
 
         <HeaderContainer />
@@ -40,7 +40,7 @@ function App(props) {
           </Routes>
         </Suspense>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
