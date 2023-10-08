@@ -3,7 +3,6 @@ import { Suspense, lazy } from 'react';
 import Navbar from './components/Navbar/Navbar';
 import HeaderContainer from './components/Header/HeaderContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
-// import DialogsContainer from './components/Dialogs/DialogsContainer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import UserContainer from './components/Users/UsersContainer'
 import LoginFormContainer from './components/Login/LoginFormContainer';
@@ -27,16 +26,14 @@ function App(props) {
   const DialogsContainerLazy = lazy(() => import('./components/Dialogs/DialogsContainer'));
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <div className="app-wrapper">
 
         <HeaderContainer />
         <Navbar />
         <Suspense fallback={'Loading ...'}>
           <Routes>
-
             <Route path="/dialog/*" element={<DialogsContainerLazy />} />
-
             <Route path="/profile/:userId?" element={<ProfileContainer />} />
             <Route path="/users" element={<UserContainer />} />
             <Route path="/login" element={<LoginFormContainer />} />
