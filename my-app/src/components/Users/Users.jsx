@@ -15,9 +15,11 @@ const Users = (props) => {
             setPage={props.setPage}
         />
         <User
-             followUser={props.followUser}
-            unfollowUser={props.funollowUser}
-        users={props.users} followingInProgress={props.followingInProgress} />
+            followUser={props.followUser}
+            unfollowUser={props.unfollowUser}
+            users={props.users}
+            followingInProgress={props.followingInProgress}
+        />
     </div>
 }
 
