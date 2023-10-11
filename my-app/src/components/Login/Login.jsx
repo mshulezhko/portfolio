@@ -12,10 +12,10 @@ import { Form, Field } from 'react-final-form'
 
 const Login = (props) => {
 
-    const {login, stopSubmitError} = props
+    const {login, stopSubmitError, captchaUrl} = props
 
     const onSubmit = (fieldsValue) => {
-        login(fieldsValue.email, fieldsValue.password, fieldsValue.remember_me)
+        login(fieldsValue.email, fieldsValue.password, fieldsValue.remember_me, fieldsValue.captcha)
     }
 
     return <Form onSubmit={onSubmit}
@@ -64,6 +64,11 @@ const Login = (props) => {
                     <Field name='remember_me' component='input' type="checkbox" />
                 </div>
                 <div>
+                    {captchaUrl && 
+                    <div>
+                        <img src={captchaUrl} alt='captcha' />
+                    <Field name='captcha' component='input' type='text' placeholder='enter captcha characters' />
+                    </div>}
                     <button type="submit" disabled={submitting || pristine}>
                         Login123
                     </button>
