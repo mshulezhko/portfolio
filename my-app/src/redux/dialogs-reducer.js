@@ -14,7 +14,6 @@ let initialState = {
 }
 
 export default function dialogReducer(state = initialState, action) {
-    // debugger;
     switch (action.type) {
         case SEND_MESSAGE:
             return {

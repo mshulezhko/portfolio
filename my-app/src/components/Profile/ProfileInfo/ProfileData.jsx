@@ -13,7 +13,6 @@ const ProfileData = (props) => {
                 return <div>{profile.contacts[key] ? `${key}: ` : ''} {profile.contacts[key] ?? ''}</div>
             })}
         </div>
-
     </div>
 }
 

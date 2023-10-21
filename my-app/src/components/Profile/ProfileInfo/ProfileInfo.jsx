@@ -5,39 +5,37 @@ import ProfileDataFormEdit from './ProfileDataFormEdit'
 import ProfileData from './ProfileData'
 
 
-function ProfileInfo(props){
-    const {profile, userId, savePhoto, saveUserDataProfile} = props
+function ProfileInfo(props) {
+    const { profile, userId, savePhoto, saveUserDataProfile } = props
 
     const [editMode, setEditMode] = useState(false)
-    // debugger
-    
-    if(!profile) {
+
+    if (!profile) {
         return Preloader
     }
 
-    const onMainPhotoSelected = (e) =>{
-       savePhoto(e.target.files[0])
+    const onMainPhotoSelected = (e) => {
+        savePhoto(e.target.files[0])
     }
-
-    console.log(profile)
 
     const setEditModeUpdate = (value) => {
         setEditMode(value)
     }
 
-// debugger
     return <div className='profile_info'>
-        <div><img src={props.profile.photos.large || defaultPhoto} alt="profile_info" /></div>
+        <div>
+            <img src={props.profile.photos.large || defaultPhoto} alt="profile_info" />
+        </div>
         {!userId && <div><input onChange={onMainPhotoSelected} type='file' /></div>}
-      {editMode ? 
-      <ProfileDataFormEdit
-      initialValues={profile}
-      saveUserDataProfile={saveUserDataProfile}
-      setEditModeUpdate={setEditModeUpdate}
-      /> : 
-      <ProfileData profile={profile} />}
+        {editMode ?
+            <ProfileDataFormEdit
+                initialValues={profile}
+                saveUserDataProfile={saveUserDataProfile}
+                setEditModeUpdate={setEditModeUpdate}
+            /> :
+            <ProfileData profile={profile} />}
         {(!userId && !editMode) &&
-        <button onClick={()=>{setEditModeUpdate(true)}}>Update data</button>}
+            <button onClick={() => { setEditModeUpdate(true) }}>Update data</button>}
     </div>
 }
 

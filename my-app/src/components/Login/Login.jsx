@@ -1,17 +1,7 @@
 import React from "react";
 import { Form, Field } from 'react-final-form'
 
-// const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
-
-// const onSubmit = (values) => {
-//     console.log(values)
-//   await sleep(300)
-//   window.alert(JSON.stringify(values, 0, 2))
-// }
-
-
 const Login = (props) => {
-
     const {login, stopSubmitError, captchaUrl} = props
 
     const onSubmit = (fieldsValue) => {
@@ -70,7 +60,7 @@ const Login = (props) => {
                     <Field name='captcha' component='input' type='text' placeholder='enter captcha characters' />
                     </div>}
                     <button type="submit" disabled={submitting || pristine}>
-                        Login123
+                        Login
                     </button>
                                 <button
               type="button"

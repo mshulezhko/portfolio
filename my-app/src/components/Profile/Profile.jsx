@@ -29,7 +29,6 @@ const Profile = (props) => {
             updateUserStatus={updateUserStatus}
             getUserStatus={getUserStatus}
             status={status}
-            // userId={props.router.params.userId}
             userId={userId}
         />
         <MyPostForm addPost={addPost} />

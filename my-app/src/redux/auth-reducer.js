@@ -43,6 +43,7 @@ export const getAuthMe = () => async (dispatch) => {
     let responseData = await authAPI.me()
 
     if (responseData.resultCode === 0) {
+        window.location.replace("#/profile")
         return dispatch(setUserData(responseData.data.id, responseData.data.login, responseData.data.email, true))
     }
 }

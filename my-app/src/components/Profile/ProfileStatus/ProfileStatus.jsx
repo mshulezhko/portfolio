@@ -27,7 +27,7 @@ const ProfileStatus = (props) => {
 
 
     useEffect(() => {
-        ///синхронізую локал стайт і глобал
+        ///synchronize local state and global
         updateStateStatus(status)
     }, [status]);
 

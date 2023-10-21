@@ -53,7 +53,7 @@ export const addPostCreator = (new_post) => {
 export const savePhotoSuccess = (photos) => {
     return { type: SAVE_PHOTO_SUCCESS, photos }
 }
-// export const updateNewPostText = (newText) => ({ type: UPDATE_NEW_POST_TEXT, newText })
+
 export const setUserProfile = (profile) => {
     return { type: SET_USER_PROFILE, profile }
 }

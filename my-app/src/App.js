@@ -10,10 +10,9 @@ import { connect } from 'react-redux';
 import { useEffect } from 'react';
 import { initializeApp } from './redux/app-reducer'
 import Preloader from './components/common/Preloader/Preloader';
+import Footer from './components/Footer/Footer';
 
-function App(props) {
-  // debugger;
-
+const App = (props) => {
 
   useEffect(() => {
     props.initializeApp()
@@ -32,14 +31,17 @@ function App(props) {
         <HeaderContainer />
         <Navbar />
         <Suspense fallback={'Loading ...'}>
+
           <Routes>
             <Route path="/dialog/*" element={<DialogsContainerLazy />} />
             <Route path="/profile/:userId?" element={<ProfileContainer />} />
             <Route path="/users" element={<UserContainer />} />
             <Route path="/login" element={<LoginFormContainer />} />
+            <Route path="/my-friends" element={<UserContainer />} />
           </Routes>
         </Suspense>
       </div>
+      <Footer />
     </HashRouter>
   );
 }

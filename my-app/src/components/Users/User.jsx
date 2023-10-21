@@ -4,6 +4,7 @@ import userPhoto from '../../assets/images/user-icon.png'
 import { NavLink } from 'react-router-dom'
 
 const User = (props) => {
+
     const {
         users,
         followingInProgress,
@@ -26,8 +27,8 @@ const User = (props) => {
             <NavLink to={'/profile/' + user.id}> <img className={styles.userPhoto} src={user.photos.small ? user.photos.small : userPhoto} alt={user.name} /></NavLink>
             <div>
                 {user.followed ?
-                <button disabled={followingInProgress.some(id => id === user.id)} onClick={() => onUnfollowUser(user.id)}>Followed</button> :
-                    <button disabled={followingInProgress.some(id => id === user.id)} onClick={() => onFollowUser(user.id)}>Unfollowed</button>
+                <button disabled={followingInProgress?.some(id => id === user.id)} onClick={() => onUnfollowUser(user.id)}>Followed</button> :
+                    <button disabled={followingInProgress?.some(id => id === user.id)} onClick={() => onFollowUser(user.id)}>Unfollowed</button>
                 }
             </div>
         </div>

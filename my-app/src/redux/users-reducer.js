@@ -50,7 +50,6 @@ export default function usersReducer(state = initialState, action) {
         case PAGE_SIZE:
             return { ...state, pageSize: action.pageSize }
         case TOTAL_COUNT:
-            //action.totalCount
             if (action.totalCount > 100) {
                 return { ...state, totalCount: 99 }
             }
@@ -91,7 +90,6 @@ export const setPageSize = (pageSize) => {
 }
 
 export const setCurrentPage = (currentPage) => {
-    // debugger;
     return { type: CURRENT_PAGE, currentPage }
 }
 
@@ -102,12 +100,14 @@ export const setFetching = (isFetching) => {
 export const setDisabledButton = (isFetching, userId) => {
     return { type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId }
 }
-export const getUsersThunk = (currentPage, totalCount) => {
-    return (dispatch) => {
 
+
+
+export const getUsersThunk = (currentPage, totalCountOnPage) => {
+    return (dispatch) => {
         dispatch(setFetching(true))
 
-        userAPI.getUsers(currentPage, totalCount).then(data => {
+        userAPI.getUsers(currentPage, totalCountOnPage).then(data => {
             dispatch(setUsers(data.items))
             dispatch(setTotalCount(data.totalCount))
             dispatch(setFetching(false))
@@ -116,7 +116,6 @@ export const getUsersThunk = (currentPage, totalCount) => {
 }
 
 export const setPage = (page, totalCount) => {
-
     return (dispatch) => {
         dispatch(setCurrentPage(page))
         dispatch(setFetching(true))

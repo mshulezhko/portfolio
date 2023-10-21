@@ -97,9 +97,7 @@ const ProfileDataFormEdit = (props) => {
                 </div>
             </form>
         )}
-
     />
 }
-
 
 export default ProfileDataFormEdit

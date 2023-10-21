@@ -29,7 +29,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const ProfileContainer = (props) => {
-    // debugger
+
     useEffect(()=>{
          let userId = props.router.params.userId
         if (userId) {
