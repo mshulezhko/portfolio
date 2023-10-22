@@ -39,12 +39,15 @@ export const getCaptchaUrlSuccess = (captchaUrl) => {
     return { type: GET_CAPTCHA_URL_SUCCESS, captchaUrl }
 }
 
-export const getAuthMe = () => async (dispatch) => {
+export const getAuthMe = (indicator) => async (dispatch) => {
     let responseData = await authAPI.me()
 
     if (responseData.resultCode === 0) {
+        dispatch(setUserData(responseData.data.id, responseData.data.login, responseData.data.email, true))
+    }
+
+    if (indicator) {
         window.location.replace("#/profile")
-        return dispatch(setUserData(responseData.data.id, responseData.data.login, responseData.data.email, true))
     }
 }
 
@@ -58,7 +61,7 @@ export const login = (email, password, rememberMe, captcha) => async (dispatch) 
     let responseData = await authAPI.login(email, password, rememberMe, captcha)
 
     if (responseData.resultCode === 0) {
-        return dispatch(getAuthMe())
+        dispatch(getAuthMe(true))
     } else if (responseData.resultCode === 1) {
         return dispatch(setUserData(null, null, null, false, responseData.messages))
     } else if (responseData.resultCode === 10) {
