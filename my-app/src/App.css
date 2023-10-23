@@ -1,3 +1,13 @@
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+  padding: 0;
+  color: #22313f;
+}
+
 .app-wrapper {
   display: grid;
   grid-template-areas:
@@ -11,24 +21,52 @@
 }
 
 .header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
   grid-area: header;
   background: linear-gradient(90deg, rgba(138, 44, 226, 1) 0%, rgba(222, 33, 213, 1) 50%, rgba(252, 176, 69, 1) 100%);
 }
 
 .nav {
   grid-area: nav;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  border-radius: 4px;
-  background-color: white;
+  background: #c4c1e0;
   padding: 5px;
+  border: 1px solid white;
 }
 
 
 .content {
   grid-area: content;
-  background-color: green;
+  background: #c4c1e0;
+
+}
+
+.contentWrapper {
+  grid-template-columns: 1fr 1fr;
 }
 
 .header img {
   width: 30px;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+
+
+  .header img {
+    width: 15px;
+  }
+
+}
+
+@media only screen and (max-width: 435px) {
+
+  .header {
+    display: flex;
+    flex-direction: column;
+  }
+
 }

@@ -1,7 +1,23 @@
 .currentPage {
-    color: red
+    color: #1d2786;
+    background: white;
+    border-radius: 4px;
+    margin-right: 10px;
 }
 
 .pageNumber {
-    margin: 0, 5;
+    margin-right: 10px;
+}
+
+.paginationBtn {
+    background-color: white;
+    color: #6a65d8;
+    border: solid 1px #6a65d8;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.pagination {
+    text-align: center;
+    margin-bottom: 30px;
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Form, Field } from 'react-final-form'
+import styles from './ProfileInfo.module.css'
 
 
 const ProfileDataFormEdit = (props) => {
@@ -30,7 +31,7 @@ const ProfileDataFormEdit = (props) => {
                     {({ input, meta }) => (
                         <div>
                             <label>Full name</label>
-                            <input {...input} type="text" />
+                            <input placeholder='Full name'  className={styles.editField} {...input} type="text" />
                             {meta.error && meta.touched && <span>{meta.error}</span>}
                         </div>
                     )}
@@ -39,7 +40,7 @@ const ProfileDataFormEdit = (props) => {
                     {({ input, meta }) => (
                         <div>
                             <label>About me</label>
-                            <input {...input} type="text" />
+                            <input placeholder='About me' className={styles.editField} {...input} type="text" />
                             {meta.error && meta.touched && <span>{meta.error}</span>}
                         </div>
                     )}
@@ -58,7 +59,7 @@ const ProfileDataFormEdit = (props) => {
                     {({ input, meta }) => (
                         <div>
                             <label>Looking for a job description</label>
-                            <input {...input} type="text" />
+                            <input placeholder='Looking for a job description' className={styles.editField} {...input} type="text" />
                             {meta.error && meta.touched && <span>{meta.error}</span>}
                         </div>
                     )}
@@ -66,8 +67,8 @@ const ProfileDataFormEdit = (props) => {
                 <Field name='contacts.facebook' >
                     {({ input, meta }) => (
                         <div>
-                            <label>Facebook</label>
-                            <input {...input} type="url" />
+                            <label>Facebook </label>
+                            <input placeholder='Facebook url' className={styles.editField} {...input} type="url" />
                             {meta.error && meta.touched && <span>{meta.error}</span>}
                         </div>
                     )}
@@ -75,8 +76,8 @@ const ProfileDataFormEdit = (props) => {
                 <Field name='contacts.github' >
                     {({ input, meta }) => (
                         <div>
-                            <label>Github</label>
-                            <input {...input} type="url" />
+                            <label>Github </label>
+                            <input placeholder='Github url' className={styles.editField} {...input} type="url" />
                             {meta.error && meta.touched && <span>{meta.error}</span>}
                         </div>
                     )}
@@ -85,13 +86,13 @@ const ProfileDataFormEdit = (props) => {
                     {({ input, meta }) => (
                         <div>
                             <label>Instagram</label>
-                            <input {...input} type="text" />
+                            <input placeholder='Instagram' className={styles.editField} {...input} type="text" />
                             {meta.error && meta.touched && <span>{meta.error}</span>}
                         </div>
                     )}
                 </Field>
                 <div>
-                    <button type="submit">
+                    <button className={styles.updateProfileData} type="submit">
                         Save
                     </button>
                 </div>

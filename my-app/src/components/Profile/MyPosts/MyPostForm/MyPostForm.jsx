@@ -1,5 +1,6 @@
 import React from 'react'
 import { Form, Field } from 'react-final-form'
+import styles from './MyPostForm.module.css'
 
 
 const MyPostForm = (props) => {
@@ -12,10 +13,10 @@ const MyPostForm = (props) => {
   return <Form
     onSubmit={onSubmit}
     render={({ handleSubmit, form, submitting, pristine, values }) => (
-      <form onSubmit={handleSubmit}>
-        <Field component='textarea' type='text' name='new_post' />
-        <button type="submit" disabled={submitting}>
-          Post
+      <form className={styles.postForm} onSubmit={handleSubmit}>
+        <Field placeholder="Add new post 💡..." className={styles.postField} component='textarea' type='text' name='new_post' />
+        <button className={styles.sendPostBtn} type="submit" disabled={submitting}>
+          Add new post
         </button>
       </form>
     )}

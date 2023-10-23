@@ -1,0 +1,35 @@
+.content {
+    padding: 10px 50px;
+    background: #c4c1e0;
+}
+
+.contentWrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.statusWrapper {
+    flex: 1;
+}
+
+.status {
+    font-size: 22px
+}
+
+@media only screen and (max-width: 600px) {
+    .contentWrapper {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+
+    .status {
+        font-size: 18px;
+    }
+
+    .content {
+        padding: 10px 10px;
+        background: #c4c1e0;
+    }
+
+}

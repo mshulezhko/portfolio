@@ -1,8 +1,49 @@
 .userPhoto {
-    width: 100px
+    width: 100px;
+    border-radius: 4px;
 }
 
 .currentPage {
     font-size: 16px;
     color: red;
+}
+
+.usersWrapper {
+    padding: 10px 50px;
+    background: #c4c1e0;
+}
+
+.userWrapper {
+    margin-bottom: 30px;
+}
+
+.followUnfollowBtn {
+    width: 100px;
+    height: 30px;
+    color: white;
+    background-color: rgb(161, 79, 239);
+    border: none;
+    border-radius: 4px;
+    transition: all 0.15s;
+    margin-bottom: 10px;
+}
+
+.followUnfollowBtn:hover {
+    box-shadow: 5px 5px 10px black;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .usersWrapper {
+        padding: 10px 10px;
+
+    }
+
+}
+
+@media only screen and (max-width: 435px) {
+
+    .userName {
+        font-size: 14px;
+    }
 }

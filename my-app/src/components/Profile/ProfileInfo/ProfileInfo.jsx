@@ -3,6 +3,7 @@ import Preloader from '../../common/Preloader/Preloader'
 import defaultPhoto from '../../../assets/images/user-icon.png'
 import ProfileDataFormEdit from './ProfileDataFormEdit'
 import ProfileData from './ProfileData'
+import styles from './ProfileInfo.module.css'
 
 
 function ProfileInfo(props) {
@@ -22,11 +23,11 @@ function ProfileInfo(props) {
         setEditMode(value)
     }
 
-    return <div className='profile_info'>
-        <div>
-            <img src={props.profile.photos.large || defaultPhoto} alt="profile_info" />
+    return <div className={styles.profileInfo}>
+        <div className={styles.profilePhotoBlock}>
+            <img className={styles.profilePhoto} src={props.profile.photos.large || defaultPhoto} alt="profile_info" />
         </div>
-        {!userId && <div><input onChange={onMainPhotoSelected} type='file' /></div>}
+        {!userId && <div><input className={styles.updatePhotoBtn} onChange={onMainPhotoSelected} type='file' /></div>}
         {editMode ?
             <ProfileDataFormEdit
                 initialValues={profile}
@@ -35,7 +36,7 @@ function ProfileInfo(props) {
             /> :
             <ProfileData profile={profile} />}
         {(!userId && !editMode) &&
-            <button onClick={() => { setEditModeUpdate(true) }}>Update data</button>}
+            <button className={styles.updateProfileData} onClick={() => { setEditModeUpdate(true) }}>Update data</button>}
     </div>
 }
 

@@ -7,10 +7,9 @@ const SAVE_PHOTO_SUCCESS = 'profile-reducer/SAVE_PHOTO_SUCCESS'
 
 let initialState = {
     posts: [
-        { id: 2, message: 'hi', likesCount: 23 },
-        { id: 3, message: 'hi33', likesCount: 3 },
-        { id: 4, message: 'hieee', likesCount: 24 },
-        { id: 6, message: 'hiefdq', likesCount: 2 },
+        { id: 2, message: 'my first post', likesCount: 23 },
+        { id: 3, message: 'Hello my friends👋 happy to see you here:)', likesCount: 3 },
+        { id: 4, message: 'I enjoy writing code🌈', likesCount: 24 },
     ],
     newPostText: '',
     profile: null,

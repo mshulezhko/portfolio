@@ -26,21 +26,21 @@ const Paginator = (props) => {
     },[portionNumber])
 
 
-    return   <div>
-        { portionNumber > 1 && <button onClick={()=>{setPortionNumber(portionNumber-1)}}> &larr; </button>}
+    return   <div className={styles.pagination}>
+        { portionNumber > 1 && <button className={styles.paginationBtn}  onClick={()=>{setPortionNumber(portionNumber-1)}}> &larr; </button>}
         {
             pages
             .filter(page => page >= leftPortionPageNumber && page <= rightPortionPageNumber)
             .map(page => {
                 return <span 
-                    className={page === currentPage && styles.currentPage}
+                    className={page === currentPage ? styles.currentPage : styles.pageNumber}
                     onClick={() => { setPage(page) }}
                 >{page}</span>
             })
         }
         {
             portionCount > portionNumber && 
-            <button onClick={updatePortion}> &rarr; </button>
+            <button className={styles.paginationBtn} onClick={updatePortion}> &rarr; </button>
         }
         </div>
 }

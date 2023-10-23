@@ -1,5 +1,5 @@
 import React from 'react'
-// import styles from './Profile.module.css'
+import styles from './Profile.module.css'
 import MyPosts from './MyPosts/MyPosts';
 import ProfileInfo from './ProfileInfo/ProfileInfo'
 import ProfileStatus from './ProfileStatus/ProfileStatus';
@@ -18,7 +18,8 @@ const Profile = (props) => {
         saveUserDataProfile
     } = props
 
-    return <div className='content'>
+    return <div className={styles.content}>
+       <div className={styles.contentWrapper}>
         <ProfileInfo
         userId={userId}
         profile={profile}
@@ -31,6 +32,7 @@ const Profile = (props) => {
             status={status}
             userId={userId}
         />
+        </div>
         <MyPostForm addPost={addPost} />
         <MyPosts posts={posts} />
     </div>
