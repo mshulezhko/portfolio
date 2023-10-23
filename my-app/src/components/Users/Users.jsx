@@ -4,7 +4,6 @@ import Paginator from '../common/Paginator/Paginator'
 import User from './User'
 import styles from './Users.module.css'
 
-
 const Users = (props) => {
 
     return <div className={styles.usersWrapper}>
