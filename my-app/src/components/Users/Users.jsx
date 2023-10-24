@@ -2,12 +2,12 @@ import React from 'react'
 import Preloader from '../common/Preloader/Preloader'
 import Paginator from '../common/Paginator/Paginator'
 import User from './User'
-// import styles from './Users.module.css'
+import styles from './UsersPage.module.css'
 // className={styles.usersWrapper}
 
 const Users = (props) => {
 
-    return <div >
+    return <div className={styles.usersWrapper} >
         {props.isFetching ? <Preloader /> : null}
         <Paginator
             totalCount={props.totalCount}
