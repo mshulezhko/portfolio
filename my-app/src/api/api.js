@@ -53,8 +53,6 @@ export const authAPI = {
     },
     login(email, password, rememberMe = false, captcha = null) {
         return instance.post('auth/login', { email, password, rememberMe, captcha }).then(response => {
-            console.log(' https://social-network.samuraijs.com/api/1.0/auth/me')
-            console.log(response.data)
             return response.data
         })
     },

@@ -12,7 +12,7 @@ const ProfileData = (props) => {
         <div>{profile.lookingForAJobDescription}</div>
         <div>{
             Object.keys(profile.contacts).map((key) => {
-                return <div>{profile.contacts[key] ? `${key}: ` : ''} {profile.contacts[key] ?? ''}</div>
+                return <div key={key}>{profile.contacts[key] ? `${key}: ` : ''} {profile.contacts[key] ?? ''}</div>
             })}
         </div>
     </div>

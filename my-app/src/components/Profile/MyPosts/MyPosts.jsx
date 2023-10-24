@@ -6,9 +6,9 @@ import Post from './Post/Post'
 function MyPosts(props) {
     const {posts} = props
 
-    return <div className='my_posts'>
+    return <div>
         <h4 className={styles.myPostsTitle}>PUBLICATIONS</h4>
-        { posts.map((post) => <Post message={post.message} likesCount={post.likesCount}/> )}
+        { posts.map((post) => <Post key={post.id} id={post.id} message={post.message} likesCount={post.likesCount}/> )}
     </div>
 }
 

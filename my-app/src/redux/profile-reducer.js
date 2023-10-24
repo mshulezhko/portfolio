@@ -22,7 +22,7 @@ export default function profileReducer(state = initialState, action) {
         case ADD_POST:
             return {
                 ...state,
-                posts: [...state.posts, { message: action.new_post, id: 1, likesCount: 123 }],
+                posts: [...state.posts, { message: action.new_post, id: Math.random(), likesCount: 123 }],
                 newPostText: ''
             }
         case SET_USER_PROFILE:
@@ -86,7 +86,6 @@ export const updateUserStatusT = (status) => async (dispatch) => {
 
 export const savePhoto = (files) => async (dispatch) => {
     const responseData = await profileAPI.savePhoto(files)
-    console.log(responseData.data.photos)
 
     if (responseData.resultCode === 0) {
         return dispatch(savePhotoSuccess(responseData.data.photos))

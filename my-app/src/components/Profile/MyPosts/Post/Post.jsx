@@ -2,10 +2,11 @@ import React from 'react'
 import styles from './Post.module.css'
 
 const Post =(props)=> {
-    const {message, likesCount} = props
+    const {id, message, likesCount} = props
 
     function deletePost(){
-        alert('delete post')
+        alert('delete post ' +id)
+
     }
 
     return <div className={styles.postWrapper}>

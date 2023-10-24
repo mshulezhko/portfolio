@@ -5,8 +5,6 @@ import styles from './ProfileInfo.module.css'
 
 const ProfileDataFormEdit = (props) => {
     const onSubmit = (formData) => {
-        console.log('ProfileDataFormEdit')
-        console.log(formData)
         props.saveUserDataProfile(formData)
         props.setEditModeUpdate(false)
     }

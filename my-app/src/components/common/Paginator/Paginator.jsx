@@ -32,9 +32,10 @@ const Paginator = (props) => {
             pages
             .filter(page => page >= leftPortionPageNumber && page <= rightPortionPageNumber)
             .map(page => {
-                return <span 
+                return <span
                     className={page === currentPage ? styles.currentPage : styles.pageNumber}
                     onClick={() => { setPage(page) }}
+                     key={page}
                 >{page}</span>
             })
         }

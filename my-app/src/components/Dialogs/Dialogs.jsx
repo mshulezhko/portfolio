@@ -12,14 +12,14 @@ function Dialogs(props) {
         <div className={styles.dialogsBlock}>
             {
                 dialogs.map((item) =>
-                    <DialogsItem id={item.id} name={item.name} />)
+                    <DialogsItem key={item.id} id={item.id} name={item.name} />)
             }
 
         </div>
         <div className={styles.dialogs_content}>
             {
-                messages.map((text) =>
-                    <Messages text={text.message} />)
+                messages.map((text, id) =>
+                    <Messages key={id} text={text.message} />)
             }
         </div>
         <DialogsForm sendMessage={sendMessage}  />
