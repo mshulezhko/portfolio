@@ -15,7 +15,7 @@
 }
 
 .btnLogout:hover {
-    box-shadow: 5px 5px 10px black;
+    box-shadow: 5px 5px 10px rgb(55, 52, 52);
 }
 
 @media only screen and (max-width: 435px) {
@@ -24,5 +24,11 @@
         width: 80px;
         height: 20px;
         background-color: rgb(112, 44, 177);
+    }
+
+    .auth {
+        font-size: 14px;
+        color: white;
+        padding: 5px;
     }
 }

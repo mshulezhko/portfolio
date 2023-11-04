@@ -22,9 +22,11 @@ const User = (props) => {
 
     return users.map(user => {
         return <div className={styles.userWrapper} key={user.id}>
-            <h3 className={styles.userName}> {user.name}</h3>
-            <div><h3>{user.status}</h3></div>
             <NavLink to={'/profile/' + user.id}> <img className={styles.userPhoto} src={user.photos.small ? user.photos.small : userPhoto} alt={user.name} /></NavLink>
+            <div className={styles.userNameStatusWrapper}>
+                 <h3 className={styles.userName}> {user.name}</h3>
+                <p>{user.status ?user.status : `New user, you have common interests ${user.name} is also interested in web development👨‍💻👩‍💻`}</p>
+                </div>
             <div>
                 {user.followed ?
                 <button className={styles.followUnfollowBtn} disabled={followingInProgress?.some(id => id === user.id)} onClick={() => onUnfollowUser(user.id)}>Followed</button> :

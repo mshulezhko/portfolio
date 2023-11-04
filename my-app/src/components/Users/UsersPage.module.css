@@ -9,7 +9,21 @@
 }
 
 .userWrapper {
+    border: gray 1px solid;
     margin-bottom: 30px;
+    padding: 15px;
+    border-radius: 4px;
+    display: flex;
+    max-width: 500px;
+    justify-content: space-between;
+}
+
+p {
+    color: rgb(59, 57, 57);
+}
+
+.userNameStatusWrapper {
+    padding: 5px;
 }
 
 .followUnfollowBtn {
@@ -24,7 +38,7 @@
 }
 
 .followUnfollowBtn:hover {
-    box-shadow: 5px 5px 10px black;
+    box-shadow: 5px 5px 10px rgb(55, 52, 52);
 }
 
 @media only screen and (max-width: 600px) {
@@ -40,5 +54,17 @@
 
     .userName {
         font-size: 14px;
+    }
+
+    p {
+        font-size: 10px;
+    }
+
+    .userPhoto {
+        width: 50px;
+    }
+
+    .userWrapper {
+        display: block;
     }
 }

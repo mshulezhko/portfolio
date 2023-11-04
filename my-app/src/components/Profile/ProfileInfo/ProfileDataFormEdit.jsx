@@ -62,15 +62,6 @@ const ProfileDataFormEdit = (props) => {
                         </div>
                     )}
                 </Field>
-                <Field name='contacts.facebook' >
-                    {({ input, meta }) => (
-                        <div>
-                            <label>Facebook </label>
-                            <input placeholder='Facebook url' className={styles.editField} {...input} type="url" />
-                            {meta.error && meta.touched && <span>{meta.error}</span>}
-                        </div>
-                    )}
-                </Field>
                 <Field name='contacts.github' >
                     {({ input, meta }) => (
                         <div>

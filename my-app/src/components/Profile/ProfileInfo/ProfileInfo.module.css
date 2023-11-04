@@ -31,7 +31,7 @@ input[type=file]::file-selector-button {
 
 .updateProfileData:hover,
 input[type=file]::file-selector-button:hover {
-    box-shadow: 5px 5px 10px black;
+    box-shadow: 5px 5px 10px rgb(55, 52, 52);
 }
 
 .editField {
@@ -54,6 +54,22 @@ input[type=file]::file-selector-button:hover {
     flex: 1;
 }
 
+.iconSocialMediaWrapper {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 5px;
+}
+
+svg {
+    width: 30px;
+    border-radius: 10px;
+    transition: all, 0.15s;
+}
+
+svg:hover {
+    box-shadow: 5px 5px 10px rgb(55, 52, 52);
+}
+
 @media only screen and (max-width: 600px) {
 
 
@@ -64,6 +80,10 @@ input[type=file]::file-selector-button:hover {
     .profilePhoto {
         border-radius: 5px;
         max-width: 150px;
+    }
+
+    svg {
+        width: 20px;
     }
 
 }
