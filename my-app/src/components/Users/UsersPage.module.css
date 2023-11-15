@@ -8,14 +8,22 @@
     background: #c4c1e0;
 }
 
+.users {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
 .userWrapper {
+    width: 400px;
     border: gray 1px solid;
     margin-bottom: 30px;
     padding: 15px;
     border-radius: 4px;
     display: flex;
-    max-width: 500px;
-    justify-content: space-between;
+    max-width: 400px;
+    justify-content: flex-start;
 }
 
 p {
@@ -53,11 +61,11 @@ p {
 @media only screen and (max-width: 435px) {
 
     .userName {
-        font-size: 14px;
+        font-size: 18px;
     }
 
     p {
-        font-size: 10px;
+        font-size: 16px;
     }
 
     .userPhoto {
@@ -66,5 +74,29 @@ p {
 
     .userWrapper {
         display: block;
+    }
+
+    /* .users {
+        margin-left: 20px;
+        max-width: 200px;
+        font-size: 16px;
+    } */
+}
+
+@media only screen and (max-width: 534px) {
+
+    .users {
+        margin-left: 20px;
+        max-width: 300px;
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 419px) {
+    .users {
+
+        max-width: 200px;
+        font-size: 16px;
+
     }
 }

@@ -3,7 +3,6 @@ import Preloader from '../common/Preloader/Preloader'
 import Paginator from '../common/Paginator/Paginator'
 import User from './User'
 import styles from './UsersPage.module.css'
-// className={styles.usersWrapper}
 
 const Users = (props) => {
 

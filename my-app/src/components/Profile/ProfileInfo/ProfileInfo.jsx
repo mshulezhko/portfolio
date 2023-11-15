@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Preloader from '../../common/Preloader/Preloader'
-import defaultPhoto from '../../../assets/images/user-icon.png'
+import defaultPhoto from '../../../assets/images/user-icon.svg'
 import ProfileDataFormEdit from './ProfileDataFormEdit'
 import ProfileData from './ProfileData'
 import styles from './ProfileInfo.module.css'
