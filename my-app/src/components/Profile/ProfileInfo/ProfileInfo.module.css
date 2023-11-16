@@ -67,7 +67,7 @@ svg {
 }
 
 svg:hover {
-    box-shadow: 5px 5px 10px rgb(55, 52, 52);
+    background-color: #a8a3ca;
 }
 
 @media only screen and (max-width: 600px) {
@@ -82,8 +82,8 @@ svg:hover {
         max-width: 150px;
     }
 
-    svg {
+    /* svg {
         width: 20px;
-    }
+    } */
 
 }

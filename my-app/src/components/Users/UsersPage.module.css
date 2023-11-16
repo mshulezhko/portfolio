@@ -87,16 +87,23 @@ p {
 
     .users {
         margin-left: 20px;
-        max-width: 300px;
+        max-width: 400px;
         font-size: 16px;
     }
 }
 
-@media only screen and (max-width: 419px) {
+@media only screen and (max-width: 484px) {
+    .users {
+
+        max-width: 350px;
+
+    }
+}
+
+@media only screen and (max-width: 432px) {
     .users {
 
         max-width: 200px;
-        font-size: 16px;
 
     }
 }

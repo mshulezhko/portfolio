@@ -6,6 +6,7 @@
     padding: 0 12px;
     margin-bottom: 15px;
     white-space: nowrap;
+    padding: 5px;
 }
 
 .navElementBlock {
@@ -13,11 +14,11 @@
 }
 
 .item:hover {
-    background: white;
+
     white-space: nowrap;
     border-radius: 4px;
     color: black;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: #a8a3ca;
 }
 
 
@@ -34,9 +35,8 @@ a {
 @media only screen and (max-width: 600px) {
 
 
-    .item {
-        font-size: 16px;
-        margin-bottom: 10px;
+    .navTitle {
+        display: none;
 
     }
 
@@ -46,5 +46,7 @@ a {
         font-weight: bold;
         white-space: nowrap;
     }
+
+
 
 }
