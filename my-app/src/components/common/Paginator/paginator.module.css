@@ -1,6 +1,7 @@
 .currentPage {
     color: #1d2786;
-    background: white;
+    background-color: #a8a3ca;
+
     border-radius: 4px;
     margin-right: 10px;
 }
@@ -10,14 +11,19 @@
 }
 
 .paginationBtn {
-    background-color: white;
+    background-color: #c4c1e0;
     color: #6a65d8;
     border: solid 1px #6a65d8;
     border-radius: 4px;
     margin-right: 10px;
 }
 
+.paginationBtn:hover {
+    background-color: #a8a3ca;
+}
+
 .pagination {
     text-align: center;
     margin-bottom: 30px;
+
 }
