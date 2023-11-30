@@ -29,8 +29,6 @@ const ProfileData = (props) => {
                     default:
                         return ''
                 }
-
-
             })}
         </div>
     </div>

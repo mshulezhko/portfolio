@@ -25,11 +25,6 @@
     --item-min-height-md: 30rem;
 }
 
-h1,
-h2,
-h3,
-p {}
-
 * {
     margin: 0;
     padding: 0;
@@ -149,19 +144,6 @@ i {
         transform: translateX(-50%);
     }
 }
-
-/* .fancy-border::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 100%;
-    background: var(--gradient-color);
-    background-size: 50% 100%;
-    z-index: 5;
-} */
-
 
 @media only screen and (max-width: 600px) {
     .logo {

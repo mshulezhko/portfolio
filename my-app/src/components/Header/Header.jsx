@@ -1,5 +1,4 @@
 import React from 'react'
-// import logo from '../../logo.svg';
 import '../common/styles_base.css'
 import './header.css'
 
@@ -7,16 +6,6 @@ import { NavLink } from 'react-router-dom';
 
 function Header(props) {
     const { isAuth, logout } = props
-    // <div className='header'>
-    //     <div>
-    //         <img src={logo} alt="logo" />
-    //         {isAuth ? <NavLink to={'/profile'} className={styles.auth}>Portfolio</NavLink> : <NavLink className={styles.auth}  to={'/login'}>Login</NavLink>}
-    //     </div>
-    //     <div>
-    //        {isAuth && <button className={styles.btnLogout} onClick={logout}>Logout</button> }
-    //     </div>
-    // </div>
-
     const body = document.body;
 
     const currentTheme = localStorage.getItem('currentTheme');
@@ -51,8 +40,6 @@ function Header(props) {
         </button >}
         </div>
     </header>
-
-
 }
 
 export default Header

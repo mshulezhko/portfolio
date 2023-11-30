@@ -75,16 +75,12 @@ const Login = (props) => {
                             Reset
                         </button>
                     </div>
-
                     <div className="err">{stopSubmitError?.map(element => {
                         return <h1>{element}</h1>
                     })} </div>
                 </div>
             </form>
-        )}
-
-    />
-
+        )} />
 }
 
 export default Login

@@ -1,12 +1,12 @@
 import React from 'react'
-import  './dialogs.css'
+import './dialogs.css'
 import DialogsItem from './DialogsItem'
 import Messages from './Messages'
 import DialogsForm from './DialogsForm/DialogsForm'
 
 function Dialogs(props) {
 
-    const {dialogs, messages, sendMessage} = props
+    const { dialogs, messages, sendMessage } = props
 
     return <div className='dialogs-container'>
         <div className='dialogs-item'>
@@ -22,7 +22,7 @@ function Dialogs(props) {
                     <Messages key={id} text={text.message} />)
             }
         </div>
-        <DialogsForm sendMessage={sendMessage}  />
+        <DialogsForm sendMessage={sendMessage} />
     </div>
 }
 export default Dialogs

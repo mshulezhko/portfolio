@@ -72,13 +72,6 @@ input:hover+label {
     object-position: center;
 }
 
-
-
-.profile-update-btn:hover,
-.profile-edit-form-btn:hover {
-    color: var(--light-color);
-}
-
 label {
     margin-right: 5px;
     font-size: 18px;
@@ -139,8 +132,6 @@ label {
     .container-profile-img {
         margin-bottom: 20px;
     }
-
-
 }
 
 @media only screen and (max-width: 404px) {
@@ -150,5 +141,4 @@ label {
         max-width: 200px;
 
     }
-
 }

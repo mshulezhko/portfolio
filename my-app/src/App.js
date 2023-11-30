@@ -28,14 +28,10 @@ const App = (props) => {
     <HashRouter>
       <div className="app">
         <div className="app-wrapper">
-
           <HeaderContainer />
           <div className="container-wrapper">
             <Navbar />
             <Suspense fallback={'Loading ...'}>
-
-
-
               <Routes>
                 <Route path="/dialogs" element={<DialogsContainerLazy />} />
                 <Route path="/profile/:userId?" element={<ProfileContainer />} />
@@ -43,9 +39,7 @@ const App = (props) => {
                 <Route path="/login" element={<LoginFormContainer />} />
                 <Route path="/my-friends" element={<UserContainer />} />
               </Routes>
-
             </Suspense>
-
           </div>
         </div>
         <Footer />
