@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './Post.module.css'
+import './post.css'
 
 const Post =(props)=> {
     const {id, message, likesCount} = props
@@ -9,10 +9,12 @@ const Post =(props)=> {
 
     }
 
-    return <div className={styles.postWrapper}>
-        <h3 className={styles.postTitle}>{message}</h3>
-        <p className={styles.likesCount}>likes: ❤️{likesCount}</p>
-        <button className={styles.deletePostBtn} onClick={deletePost}>delete</button>
+    return <div className='post-container'>
+        <div>
+        <p className='post-message'>{message}</p>
+        <p className='post-likes'>likes: ❤️{likesCount}</p>
+        </div>
+        <button className='delete-post-btn' onClick={deletePost}>Delete</button>
     </div>
 }
 

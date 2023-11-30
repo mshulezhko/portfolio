@@ -1,0 +1,14 @@
+/* Footer */
+.footer {
+    /* background-color: var(--secondary-background-color); */
+    padding-block: 20px;
+    position: relative;
+    z-index: 9999;
+    text-align: center;
+    margin-top: 300px;
+    background-color: var(--secondary-background-color);
+}
+
+.footer p {
+    font-size: 12px;
+}

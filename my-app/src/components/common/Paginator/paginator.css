@@ -1,0 +1,28 @@
+.pagination-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.paginator-btn {
+    margin-right: 10px;
+}
+
+.page-number {
+    margin-right: 10px;
+}
+
+.page-number:hover,
+.paginator-btn:hover,
+.current-page {
+    color: var(--light-color);
+}
+
+@media only screen and (max-width: 592px) {
+
+    .page-number,
+    .paginator-btn {
+        font-size: 16px;
+    }
+
+
+}

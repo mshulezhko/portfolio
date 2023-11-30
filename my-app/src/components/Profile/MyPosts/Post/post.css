@@ -1,0 +1,45 @@
+.post-message {
+    font-size: 20px;
+    font-weight: 200;
+    margin-bottom: 6px;
+    text-wrap: wrap;
+}
+
+.post-likes {
+    font-size: 16px;
+}
+
+.post-container {
+    margin-bottom: 30px;
+    width: 500px;
+    max-width: 500px;
+}
+
+.delete-post-btn {
+    font-size: 16px;
+    padding: 6px 10px;
+    border: 1px solid var(--light-color-alt)
+}
+
+.delete-post-btn:hover {
+    border: 1px solid var(--light-color);
+    color: var(--light-color);
+}
+
+@media only screen and (max-width: 592px) {
+
+    .post-container {
+        width: 300px;
+        max-width: 300px;
+    }
+
+}
+
+@media only screen and (max-width: 368px) {
+
+    .post-container {
+        width: 250px;
+        max-width: 250px;
+    }
+
+}

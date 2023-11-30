@@ -1,72 +1,63 @@
-h1,
-h2,
-h3,
-h4,
-p {
-  margin: 0;
-  padding: 0;
-  color: #22313f;
-}
-
-.app-wrapper {
-  display: grid;
-  grid-template-areas:
-    "header header"
-    "nav content";
-  grid-template-rows: 60px 1fr;
-  grid-template-columns: 1fr 10fr;
-
-  max-width: 100%;
-  margin: 0 auto;
-  background: #c4c1e0;
-}
-
-.header {
+.app {
+  min-height: 100vh;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
-  padding: 10px;
-  grid-area: header;
-  background: linear-gradient(90deg, rgba(138, 44, 226, 1) 0%, rgba(222, 33, 213, 1) 50%, rgba(252, 176, 69, 1) 100%);
 }
 
-.nav {
-  grid-area: nav;
-  background: #c4c1e0;
-  padding: 5px;
-  border-right: 1px solid rgb(106, 106, 106);
-  margin: 0 auto;
+.container-wrapper {
+  margin-top: 100px;
+  margin-left: 100px;
+  overflow-x: hidden;
 }
 
-
-.content {
-  grid-area: content;
+button {
+  cursor: pointer;
 }
 
-.contentWrapper {
-  grid-template-columns: 1fr 1fr;
+.profile-edit-form-btn,
+.follow-unfolow-btn,
+.send-message-btn,
+.dialog-input {
+  border: 1px solid var(--light-color-alt);
+  padding: 6px 10px;
+  margin-top: 10px;
+  transition: color .5s;
 }
 
-.header img {
-  width: 30px;
+.profile-update-btn:hover,
+.profile-edit-form-btn:hover,
+.follow-unfolow-btn:hover,
+.send-message-btn:hover,
+.dialog-input:hover {
+  color: var(--light-color);
+  border-color: var(--light-color);
 }
 
+@media only screen and (max-width: 592px) {
 
+  .container-wrapper {
+    margin-left: 70px;
+    padding-right: 20px;
 
-@media only screen and (max-width: 600px) {
-
-
-  .header img {
-    width: 15px;
   }
 
 }
 
-@media only screen and (max-width: 435px) {
+@media only screen and (max-width: 460px) {
 
-  .header {
-    display: flex;
-    flex-direction: column;
+  .container-wrapper {
+    margin-top: 80px;
+
+  }
+
+}
+
+@media only screen and (max-width: 430px) {
+
+  .container-wrapper {
+    margin-left: 30px;
+
   }
 
 }

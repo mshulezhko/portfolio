@@ -1,0 +1,54 @@
+textarea {
+    padding-left: 10px;
+    font-size: 18px;
+    height: 40px;
+    line-height: 40px;
+}
+
+textarea:hover,
+textarea:active {
+    border: 1px solid var(--light-color);
+}
+
+.post-field {
+    margin-right: 10px;
+}
+
+.send-post-btn:hover {
+    color: var(--light-color);
+}
+
+.post-form {
+    margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 566px) {
+    .send-post-btn {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 520px) {
+    .send-post-btn {
+        font-size: 20px;
+    }
+
+    .post-form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .post-field {
+        max-width: 300px;
+    }
+
+    .send-post-btn {
+        max-width: 150px;
+    }
+}
+
+@media only screen and (max-width: 366px) {
+    .post-field {
+        max-width: 250px;
+    }
+}

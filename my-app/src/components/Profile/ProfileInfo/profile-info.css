@@ -1,0 +1,154 @@
+.file {
+    opacity: 0;
+    width: 0.1px;
+    height: 0.1px;
+    position: absolute;
+}
+
+.file-input label {
+    display: block;
+    position: relative;
+    width: 200px;
+    height: 50px;
+    border-radius: 25px;
+    background: var(--gradient-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-background-color);
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform .2s ease-out;
+    border-radius: 0px;
+    font-size: 18px;
+}
+
+input:hover+label {
+    border: 1px solid var(--light-color);
+    color: var(--light-color);
+    transform: scale(1.02);
+}
+
+.file-name {
+    position: absolute;
+    bottom: -35px;
+    left: 10px;
+    font-size: 0.85rem;
+    color: #555;
+}
+
+.profile-data-links {
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-data-link {
+    margin-right: 20px;
+}
+
+.icon-network {
+    transition: color .5s;
+    font-size: 36px;
+}
+
+.icon-network:hover {
+    color: rgb(3, 120, 159);
+}
+
+.container-profile-info {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.container-profile-img {
+    width: 350px;
+    max-width: 350px;
+}
+
+.profile-info-img {
+    object-fit: cover;
+    max-width: 100%;
+    object-position: center;
+}
+
+
+
+.profile-update-btn:hover,
+.profile-edit-form-btn:hover {
+    color: var(--light-color);
+}
+
+label {
+    margin-right: 5px;
+    font-size: 18px;
+    display: block;
+}
+
+.profile-edit-form-input {
+    font-size: 18px;
+    width: 300px;
+    max-width: 300px;
+    padding: 5px 10px;
+    border: 1px solid var(--light-color);
+}
+
+.profile-edit-form {
+    margin-left: 10px;
+}
+
+.status {
+    cursor: pointer;
+}
+
+.status-wrap {
+    margin-bottom: 80px;
+}
+
+.status-wrap h3 {
+    font-size: 25px;
+}
+
+.status-wrap h3 span {
+    font-size: 14px;
+}
+
+.profile-data-title-main {
+    font-size: 35px;
+}
+
+@media only screen and (max-width: 782px) {
+    .profile-data-title-main {
+        font-size: 25px;
+    }
+
+    .profile-data-title {
+        font-size: 30px;
+    }
+
+    .profile-data-text {
+        font-size: 16px;
+    }
+
+    .container-profile-info {
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 662px) {
+    .container-profile-img {
+        margin-bottom: 20px;
+    }
+
+
+}
+
+@media only screen and (max-width: 404px) {
+
+    .profile-info-img {
+        width: 200px;
+        max-width: 200px;
+
+    }
+
+}

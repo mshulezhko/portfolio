@@ -26,22 +26,30 @@ const App = (props) => {
 
   return (
     <HashRouter>
-      <div className="app-wrapper">
+      <div className="app">
+        <div className="app-wrapper">
 
-        <HeaderContainer />
-        <Navbar />
-        <Suspense fallback={'Loading ...'}>
+          <HeaderContainer />
+          <div className="container-wrapper">
+            <Navbar />
+            <Suspense fallback={'Loading ...'}>
 
-          <Routes>
-            <Route path="/dialog/*" element={<DialogsContainerLazy />} />
-            <Route path="/profile/:userId?" element={<ProfileContainer />} />
-            <Route path="/users" element={<UserContainer />} />
-            <Route path="/login" element={<LoginFormContainer />} />
-            <Route path="/my-friends" element={<UserContainer />} />
-          </Routes>
-        </Suspense>
+
+
+              <Routes>
+                <Route path="/dialogs" element={<DialogsContainerLazy />} />
+                <Route path="/profile/:userId?" element={<ProfileContainer />} />
+                <Route path="/users" element={<UserContainer />} />
+                <Route path="/login" element={<LoginFormContainer />} />
+                <Route path="/my-friends" element={<UserContainer />} />
+              </Routes>
+
+            </Suspense>
+
+          </div>
+        </div>
+        <Footer />
       </div>
-      <Footer />
     </HashRouter>
   );
 }

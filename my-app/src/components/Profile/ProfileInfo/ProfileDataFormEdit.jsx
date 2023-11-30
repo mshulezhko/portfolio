@@ -1,6 +1,6 @@
 import React from 'react'
 import { Form, Field } from 'react-final-form'
-import styles from './ProfileInfo.module.css'
+import  './profile-info.css'
 
 
 const ProfileDataFormEdit = (props) => {
@@ -24,12 +24,12 @@ const ProfileDataFormEdit = (props) => {
 
         render={({ handleSubmit, form, submitting, pristine, values }) => (
 
-            <form onSubmit={handleSubmit}>
+            <form className='profile-edit-form' onSubmit={handleSubmit}>
                 <Field name='fullName' >
                     {({ input, meta }) => (
                         <div>
                             <label>Full name</label>
-                            <input placeholder='Full name'  className={styles.editField} {...input} type="text" />
+                            <input placeholder='Full name'  className='profile-edit-form-input' {...input} type="text" />
                             {meta.error && meta.touched && <span>{meta.error}</span>}
                         </div>
                     )}
@@ -38,7 +38,7 @@ const ProfileDataFormEdit = (props) => {
                     {({ input, meta }) => (
                         <div>
                             <label>About me</label>
-                            <input placeholder='About me' className={styles.editField} {...input} type="text" />
+                            <input placeholder='About me' className='profile-edit-form-input' {...input} type="text" />
                             {meta.error && meta.touched && <span>{meta.error}</span>}
                         </div>
                     )}
@@ -48,25 +48,17 @@ const ProfileDataFormEdit = (props) => {
                     {({ input, meta }) => (
                         <div>
                             <label>Looking for a job</label>
-                            <input {...input} type="checkbox" />
+                            <input {...input} className='profile-edit-form-checkbox' type="checkbox" />
                             {meta.error && meta.touched && <span>{meta.error}</span>}
                         </div>
                     )}
                 </Field>
-                <Field name='lookingForAJobDescription' >
-                    {({ input, meta }) => (
-                        <div>
-                            <label>Looking for a job description</label>
-                            <input placeholder='Looking for a job description' className={styles.editField} {...input} type="text" />
-                            {meta.error && meta.touched && <span>{meta.error}</span>}
-                        </div>
-                    )}
-                </Field>
+            
                 <Field name='contacts.github' >
                     {({ input, meta }) => (
                         <div>
                             <label>Github </label>
-                            <input placeholder='Github url' className={styles.editField} {...input} type="url" />
+                            <input placeholder='Github url' className='profile-edit-form-input' {...input} type="url" />
                             {meta.error && meta.touched && <span>{meta.error}</span>}
                         </div>
                     )}
@@ -74,14 +66,23 @@ const ProfileDataFormEdit = (props) => {
                 <Field name='contacts.instagram' >
                     {({ input, meta }) => (
                         <div>
-                            <label>Instagram</label>
-                            <input placeholder='Instagram' className={styles.editField} {...input} type="text" />
+                            <label>LinkedIn</label>
+                            <input placeholder='LinkedIn' className='profile-edit-form-input' {...input} type="text" />
+                            {meta.error && meta.touched && <span>{meta.error}</span>}
+                        </div>
+                    )}
+                </Field>
+                    <Field name='lookingForAJobDescription' >
+                    {({ input, meta }) => (
+                        <div>
+                            <label>Looking for a job description</label>
+                            <input placeholder='Looking for a job description' className='profile-edit-form-input' {...input} type="text" />
                             {meta.error && meta.touched && <span>{meta.error}</span>}
                         </div>
                     )}
                 </Field>
                 <div>
-                    <button className={styles.updateProfileData} type="submit">
+                    <button className='profile-edit-form-btn' type="submit">
                         Save
                     </button>
                 </div>

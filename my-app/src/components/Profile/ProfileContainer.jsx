@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react'
-// import styles from './Profile.module.css'
 import Profile from './Profile'
 import { addPostCreator, getUsersPRofileT, getUserStatusT, updateUserStatusT, savePhoto,saveUserDataProfile } from '../../redux/profile-reducer'
 import { connect } from 'react-redux'

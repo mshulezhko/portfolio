@@ -1,0 +1,45 @@
+.user-container {
+    margin-bottom: 60px;
+}
+
+.follow-unfolow-btn {
+    margin-bottom: 6px;
+}
+
+@media only screen and (max-width: 592px) {
+
+    .users-container {
+        padding-left: 20px;
+    }
+
+    .follow-unfolow-btn {
+        padding: 4px 8px;
+        font-size: 16px;
+    }
+
+    .user-name {
+        font-size: 20px;
+    }
+
+    .user-name-wrap p {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 464px) {
+
+    .users-container {
+        padding-left: 0px;
+    }
+
+
+}
+
+@media only screen and (max-width: 403px) {
+
+    .users-container {
+        padding-left: 20px;
+    }
+
+
+}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import styles from '../Profile.module.css'
+import '../profile.css'
 
 
 const ProfileStatus = (props) => {
@@ -37,11 +37,11 @@ const ProfileStatus = (props) => {
         return <span >Status: {status}</span>
     }
 
-    return <div className={styles.statusWrapper}>
-        <h3>Status(click to change👇)</h3>
-        <div>
-            {!editMode ? <span onClick={activateEditMode} className={styles.status} >{status}</span> :
-                <input autoFocus={true} onChange={onStatusChange} onBlur={deactivateEditMode} value={statusLocalState} />}
+    return <div className='status-wrap'>
+        <h3>Status<span>(click to change👇)</span></h3>
+        <div className='status-input-wrap'>
+            {!editMode ? <span className='status' onClick={activateEditMode} >{status}</span> :
+                <input className='status-input' autoFocus={true} onChange={onStatusChange} onBlur={deactivateEditMode} value={statusLocalState} />}
 
         </div>
     </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Form, Field } from 'react-final-form'
-import styles from '../Dialogs.module.css'
+import '../dialogs.css'
 
 
 const DialogsForm = (props) => {
@@ -17,10 +17,10 @@ const DialogsForm = (props) => {
         render={({ handleSubmit, form, submitting, pristine, values }) => (
             <form onSubmit={handleSubmit} >
                 <div>
-                    <Field placeholder='new message...' className={styles.dialogField} component='input' type='text' name='new_message' />
+                    <Field placeholder='new message...' className='dialog-input' component='input' type='text' name='new_message' />
                 </div>
                 <div>
-                    <button className={styles.sendMessage} type="submit" disabled={submitting || pristine}>
+                    <button className='btn send-message-btn' type="submit" disabled={submitting || pristine}>
                         Send message
                     </button>
                 </div>

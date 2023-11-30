@@ -1,6 +1,6 @@
 import React from "react";
 import { Form, Field } from 'react-final-form'
-import styles from './Login.module.css'
+import './login.css'
 
 const Login = (props) => {
     const { login, stopSubmitError, captchaUrl } = props
@@ -26,34 +26,34 @@ const Login = (props) => {
         render={({ handleSubmit, form, submitting, pristine, values }) => (
 
 
-            <form onSubmit={handleSubmit}>
-                <div className={styles.loginForm}>
-                    <div className={styles.loginFormTitle}>LOGIN</div>
+            <form className='login-form' onSubmit={handleSubmit}>
+                <div className='login-form-container'>
+                    <div className='login-form-title'>LOGIN</div>
 
-                    <div className={styles.loginFormField}>
+                    <div >
                         <Field name='email' >
                             {({ input, meta }) => (
                                 <div>
-                                    <input {...input} type="email" placeholder="Login" />
-                                    {meta.error && meta.touched && <span>{meta.error}</span>}
+                                    <input className='login-form-input' {...input} type="email" placeholder="Login" />
+                                    {meta.error && meta.touched && <div>{meta.error} email</div>}
                                 </div>
                             )}
                         </Field>
                     </div>
-                    <div className={styles.loginFormField}>
+                    <div >
                         <Field name='password' >
                             {({ input, meta }) => (
                                 <div>
-                                    <input {...input} type="password" placeholder="Password" />
-                                    {meta.error && meta.touched && <span>{meta.error}</span>}
+                                    <input className='login-form-input' {...input} type="password" placeholder="Password" />
+                                    {meta.error && meta.touched && <div>{meta.error} password</div>}
                                 </div>
                             )
 
                             }
                         </Field>
                     </div>
-                    <div className={styles.checkbox}>
-                        <label>Remember me</label>
+                    <div className='login-form-checkbox'>
+                        <span className='checkbox-label'>Remember me</span>
                         <Field name='remember_me' component='input' type="checkbox" />
                     </div>
                     <div>
@@ -63,11 +63,11 @@ const Login = (props) => {
                                 <Field name='captcha' component='input' type='text' placeholder='enter captcha characters' />
                             </div>}
                     </div>
-                    <div className={styles.loginFormBtn}>
-                        <button className={styles.btnLogin} type="submit" disabled={submitting || pristine}>
+                    <div className='login-form-btn-wrap'>
+                        <button className='login-form-btn' type="submit" disabled={submitting || pristine}>
                             Login
                         </button>
-                        <button className={styles.btnReset}
+                        <button className='login-form-btn'
                             type="button"
                             onClick={form.reset}
                             disabled={submitting || pristine}
